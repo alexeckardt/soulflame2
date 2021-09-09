@@ -17,3 +17,9 @@ display_set_gui_size(game_width, game_height);
 view_surf = -1;
 smooth = true;
 
+//Camera Following
+target = instance_nearest(x, y, oKeira);
+lockX = x;
+lockY = y;
+panCameraToLock = false;
+

@@ -14,3 +14,21 @@ speed = min(speed, 2.5);
 
 // sloow pan
 if (keyboard_check(vk_shift)) { x += 0.1; y += 0.05; }
+
+
+//Goal
+if (instance_exists(target)) {	
+	if (target != id) {
+		
+		x = lerp(x, target.x, 0.25);
+		y = lerp(y, target.y, 0.25);
+		
+	} else {
+
+		var bS = 0.1;
+		var lerpP = bS + (1-bS)*(!panCameraToLock)
+		x = lerp(x, lockX, lerpP);
+		y = lerp(y, lockY, lerpP);
+			
+	}
+}

@@ -1,7 +1,7 @@
 ///@desc Update Camera View Position
 
 //Update Camera View Position
-camera_set_view_pos(view_camera[0], floor(x), floor(y));
+camera_set_view_pos(view_camera[0], floor(x - game_width/2), floor(y - game_height/2));
 
 
 application_surface_enable(!smooth);	
