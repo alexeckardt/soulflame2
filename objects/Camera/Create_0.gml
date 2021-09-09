@@ -18,8 +18,13 @@ view_surf = -1;
 smooth = true;
 
 //Camera Following
-target = instance_nearest(x, y, oKeira);
+target = noone;//instance_nearest(x, y, oKeira);
+targetXoffset = 0;
+targetYoffset = -32;
+
+//Locked Camera
 lockX = x;
 lockY = y;
 panCameraToLock = false;
 
+trackingSpeed = 0.4;

@@ -2,6 +2,7 @@
 
 
 //Simple Movement (REPLACE!!)
+/*
 var kx = (keyboard_check(vk_right) - keyboard_check(vk_left));
 var ky = (keyboard_check(vk_down) - keyboard_check(vk_up));
 var kd = point_distance(0, 0, kx, ky);
@@ -14,14 +15,14 @@ speed = min(speed, 2.5);
 
 // sloow pan
 if (keyboard_check(vk_shift)) { x += 0.1; y += 0.05; }
-
+*/
 
 //Goal
 if (instance_exists(target)) {	
-	if (target != id) {
+	if (target != noone) {
 		
-		x = lerp(x, target.x, 0.25);
-		y = lerp(y, target.y, 0.25);
+		x = lerp(x, target.x+targetXoffset, trackingSpeed);
+		y = lerp(y, target.y+targetYoffset, trackingSpeed);
 		
 	} else {
 

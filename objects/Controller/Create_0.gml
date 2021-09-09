@@ -8,3 +8,8 @@ gamepadDeadzone = 0.3;
 left = false;
 right = false;
 horizontalStick = 0;
+
+jump = false;
+jumpHeld = false;
+
+goal = 60;
