@@ -39,3 +39,13 @@ terminalVelocity = 10;
 halfGravityThreshold = 0.8;
 allowHalfGravity = true;
 
+//Display
+directionFacing = 1;
+directionFacingSmooth = 1;
+turnSpeed = 0.2;
+
+squishX = 1;
+squishY = 1;
+sqiushElasticity = 0.1;
+blend = c_white;
+alpha = 1;

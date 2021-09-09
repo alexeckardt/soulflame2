@@ -79,7 +79,7 @@ if (inAir) {
 }
 //Round Out
 hSpeed = sign(hSpeed) * floor(abs(hSpeed) * 100) / 100;
-
+directionFacing = (hSpeed != 0) ? sign(hSpeed) : directionFacing;
 
 
 //Collide and Move
@@ -112,8 +112,18 @@ if (place_meeting(x, y+moveY, pSolid)) {
 	vSpeed = 0;
 }
 y+=moveY;
+var wasOnGround = onGround;
 onGround = place_meeting(x, y+1, pSolid);
 groundBelow = (onGround) ? instance_place(x, y+1, pSolid) : noone;
+
+
+//Land	
+if (!wasOnGround && onGround) {
+	squishX = 1.2;
+	squishY = 0.8;	
+}
+
+
 
 //
 //Jump
@@ -131,5 +141,7 @@ if (jumpTicks > 0) {
 		//Jump
 		vSpeed = jumpSpeed + vMomentum; 
 		jumpTicks = 0;
+		squishX = 0.8;
+		squishY = 1.2;
 	}
 }

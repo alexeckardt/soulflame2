@@ -20,7 +20,7 @@ smooth = true;
 //Camera Following
 target = instance_nearest(x, y, oKeira);
 targetXoffset = 0;
-targetYoffset = -32;
+targetYoffset = -16;
 
 //Locked Camera
 lockX = x;
