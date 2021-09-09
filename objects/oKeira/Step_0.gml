@@ -1,42 +1,119 @@
 /// @desc
 
-//Use Delta Time
+//Use time Time
 var time = Controller.delta;
 
-//Collide and Move
-if (place_meeting(x + hSpeed, y, pSolid)) {
-	while(!place_meeting(x+sign(hSpeed), y, pSolid)) {
-		x += sign(hSpeed);
-	}
-	hSpeed = 0;
-}
-x += hSpeed * delta;
 
-//Vertical Collide
-timeSinceOnGround++;
-if (place_meeting(x, y+vSpeed, pSolid)) {
-	//Back Onto Wall
-	while(!place_meeting(x, y+min(abs(vSpeed), abs(sign(vSpeed)))*sign(vSpeed), pSolid)) {
-		y += sign(vSpeed);
-	}
+//Gravity
+if (timeSinceOnGround > -1) {
 	
-	//Am On Ground
-	if (sign(vSpeed) == 1) {
-		timeSinceOnGround = -1;	
-	}
+	//if (timeSinceOnGround > 6) {
 	
-	//Reset Speed
-	vSpeed = 0;
+	//}
+	
+	//Gives Hang Time If Jump is Still Held
+	var mult = (abs(vSpeed) < halfGravityThreshold && Controller.jumpHeld && allowHalfGravity) ? 0.5 : 1;
+	
+	//Add Gravity
+	vSpeed = vSpeed + myGrav*mult*time;
+	
+	//Short Jump
+	if (!Controller.jumpHeld && vSpeed < -halfGravityThreshold && !cutVspd) {
+		vSpeed /= 1.6;	
+		cutVspd = true;
+	}
 }
-//Move
-y += vSpeed * delta;
 
 
 //
-//Change Movement
+//Horizontal Movement
+
+//Get Input
 var hController = Controller.right - Controller.left;
-runAcc = lerp(runAcc, hController, traction);
-hSpeed = runAcc*minRunSpeed + hMomentum; 
+var mx = hController;
+
+//Get Friction Values
+var slideValBase = airFrictionValue;
+var inAir = !onGround;
+if (!inAir) {
+	slideValBase = (groundBelow != noone) ? groundBelow.traction : 0.3;
+}
+
+//Movement Multpliers
+
+
+//Goal
+var hSpeedGoal = mx * minRunSpeed * time * power(0.99, time);
+var originalHSpeedGoal = hSpeedGoal;
+
+if (inAir) {
+
+	//In Air Speed Changes
+	var holdingOppositeInAir = (sign(mx) == -sign(hSpeedGoal) && mx != 0 && inAirTime > room_speed/2) * airFrictionValue*5;
+	
+	//Smooth Friction Amount
+	airFrictionMultiplierLerp = lerp(airFrictionMultiplierLerp, doAirFriction, airFrictionValue/2);
+	
+	
+	if (!doAirFriction) {
+		//Zero Air Friction
+		airFrictionMultiplierLerp = 0;
+	} else {
+		
+		//Smoothly Change Horizontal Speed
+		hSpeed = lerp(hSpeed + hMomentum, hSpeedGoal, (airFrictionValue + holdingOppositeInAir)*airFrictionMultiplierLerp);
+	
+	}
+
+//On Ground
+} else {
+	
+	//Normal Air Friction on next jump
+	airFrictionMultiplierLerp = 1;
+	
+	//Use Ground Friction
+	hSpeed = lerp(hSpeed, hSpeedGoal*inControl, slideValBase);
+	allowHalfGravity = true;
+	cutVspd = false;
+	
+}
+//Round Out
+hSpeed = sign(hSpeed) * floor(abs(hSpeed) * 100) / 100;
+
+
+
+//Collide and Move
+var moveX = (hSpeed)*time
+if (place_meeting(x + moveX, y, pSolid)) {
+	while(!place_meeting(x+sign(moveX), y, pSolid)) {
+		x += sign(moveX);
+	}
+	moveX = 0;
+	hSpeed = 0;
+}
+x += moveX;
+
+
+//Vertical Collide
+timeSinceOnGround += time;
+var moveY = (vSpeed)*time
+if (place_meeting(x, y+moveY, pSolid)) {
+	//Back Onto Wall
+	while(!place_meeting(x, y+sign(moveY), pSolid)) {
+		y += sign(moveY);
+	}
+	
+	//Am On Ground
+	timeSinceOnGround = -1;	
+	allowHalfGravity = false;
+	
+	//Reset Speed
+	moveY = 0;
+	vSpeed = 0;
+}
+y+=moveY;
+onGround = place_meeting(x, y+1, pSolid);
+groundBelow = (onGround) ? instance_place(x, y+1, pSolid) : noone;
 
 //
 //Jump
@@ -46,30 +123,13 @@ if (Controller.jump) {
 
 //Check Jump
 if (jumpTicks > 0) {
-	jumpTicks--;
+	jumpTicks -= time;
 	
 	//Coyottee Time AND Wait for until on ground.
 	if (timeSinceOnGround < coyoteeMaxTime) {
 		
 		//Jump
 		vSpeed = jumpSpeed + vMomentum; 
-		
+		jumpTicks = 0;
 	}
-}
-
-
-//Gravity
-if (timeSinceOnGround > -1) {
-	
-	if (!Controller.jumpHeld && vSpeed < -myGrav*2) {
-		vSpeed /= 1.3;	
-	}
-	
-	
-	//Gives Hang Time If Jump is Still Held
-	var mult = (abs(vSpeed) < halfGravityThreshold && (Controller.jumpHeld)) ? 0.5 : 1;
-	
-	//Add Gravity
-	vSpeed = min(vSpeed + myGrav*mult, terminalVelocity);
-
 }

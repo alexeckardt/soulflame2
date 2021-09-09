@@ -12,4 +12,4 @@ horizontalStick = 0;
 jump = false;
 jumpHeld = false;
 
-goal = 60;
+scale = 60;

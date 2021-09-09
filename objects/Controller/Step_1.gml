@@ -1,2 +1,2 @@
 /// @desc
-delta = delta_time*goal*0.000001;
+delta = delta_time*scale*0.000001;
