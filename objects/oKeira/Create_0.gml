@@ -44,8 +44,11 @@ directionFacing = 1;
 directionFacingSmooth = 1;
 turnSpeed = 0.2;
 
+//Display
 squishX = 1;
 squishY = 1;
-sqiushElasticity = 0.1;
+squishOffset = 0.3;
+sqiushElasticity = 0.3;
 blend = c_white;
 alpha = 1;
+

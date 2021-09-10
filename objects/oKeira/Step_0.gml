@@ -76,6 +76,9 @@ if (inAir) {
 	allowHalfGravity = true;
 	cutVspd = false;
 	
+	//Keep Track
+	timeSinceOnGround = -1;	
+	
 }
 //Round Out
 hSpeed = sign(hSpeed) * floor(abs(hSpeed) * 100) / 100;
@@ -103,8 +106,7 @@ if (place_meeting(x, y+moveY, pSolid)) {
 		y += sign(moveY);
 	}
 	
-	//Am On Ground
-	timeSinceOnGround = -1;	
+	//Hit Head
 	allowHalfGravity = false;
 	
 	//Reset Speed
@@ -112,15 +114,16 @@ if (place_meeting(x, y+moveY, pSolid)) {
 	vSpeed = 0;
 }
 y+=moveY;
+
+//Update On Ground
 var wasOnGround = onGround;
 onGround = place_meeting(x, y+1, pSolid);
 groundBelow = (onGround) ? instance_place(x, y+1, pSolid) : noone;
 
-
 //Land	
 if (!wasOnGround && onGround) {
-	squishX = 1.2;
-	squishY = 0.8;	
+	squishX = squishOffset;
+	squishY = -squishOffset;	
 }
 
 
@@ -141,7 +144,7 @@ if (jumpTicks > 0) {
 		//Jump
 		vSpeed = jumpSpeed + vMomentum; 
 		jumpTicks = 0;
-		squishX = 0.8;
-		squishY = 1.2;
+		squishX = -squishOffset;
+		squishY = squishOffset;
 	}
 }
