@@ -1,2 +1,2 @@
 /// @desc
-delta = delta_time*scale*0.000001;
+delta = delta_time*delta_scale*0.000001;

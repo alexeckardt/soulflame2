@@ -14,6 +14,12 @@ if (usingController) {
 	
 	jump = gamepad_button_check_pressed(0, gp_face1);
 	jumpHeld = gamepad_button_check(0, gp_face1);
+	
+	attack = gamepad_button_check(0, gp_shoulderr);
+	attackPressed = gamepad_button_check_pressed(0, gp_shoulderr);
+	
+	block = gamepad_button_check(0, gp_shoulderl);
+	blockPressed = gamepad_button_check(0, gp_shoulderl);
 }
 
 //Keyboard Controller

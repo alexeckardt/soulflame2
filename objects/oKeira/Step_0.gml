@@ -6,16 +6,16 @@ var time = Controller.delta;
 
 //Gravity
 if (timeSinceOnGround > -1) {
-	
-	//if (timeSinceOnGround > 6) {
-	
-	//}
-	
+
+	//Choose Values
+	var grav = myGrav * ((STATE == state.climb && vSpeed > 0) ? climbingGravMulti : 1);
+	var term = (STATE != state.climb) ? terminalVelocity : climbingTermVel;
+
 	//Gives Hang Time If Jump is Still Held
 	var mult = (abs(vSpeed) < halfGravityThreshold && Controller.jumpHeld && allowHalfGravity) ? 0.5 : 1;
 	
 	//Add Gravity
-	vSpeed = vSpeed + myGrav*mult*time;
+	vSpeed = min(vSpeed + grav*mult*time, term);
 	
 	//Short Jump
 	if (!Controller.jumpHeld && vSpeed < -halfGravityThreshold && !cutVspd) {
@@ -78,6 +78,7 @@ if (inAir) {
 	
 	//Keep Track
 	timeSinceOnGround = -1;	
+	lastOnFloorAtY = y;
 	
 }
 //Round Out
@@ -86,32 +87,65 @@ directionFacing = (hSpeed != 0) ? sign(hSpeed) : directionFacing;
 
 
 //Collide and Move
-var moveX = (hSpeed)*time
+var moveX = (hSpeed)*time*power(0.99, time);
 if (place_meeting(x + moveX, y, pSolid)) {
+	
+	//Approach Wall until meeting
 	while(!place_meeting(x+sign(moveX), y, pSolid)) {
 		x += sign(moveX);
 	}
+	
+	//Impact Splat
+	squishX = -clamp((abs(moveX)-2)/4, 0, 0.5);
+	
+	//Set Wall Direction
+	wallInDirection = sign(moveX);
+	
+	//Reset Movement Vals
 	moveX = 0;
 	hSpeed = 0;
 }
 x += moveX;
 
-
 //Vertical Collide
 timeSinceOnGround += time;
-var moveY = (vSpeed)*time
+var moveY = (vSpeed)*time*power(0.99, time);
 if (place_meeting(x, y+moveY, pSolid)) {
+
 	//Back Onto Wall
 	while(!place_meeting(x, y+sign(moveY), pSolid)) {
 		y += sign(moveY);
 	}
 	
-	//Hit Head
-	allowHalfGravity = false;
+	//Slide Around Corner
+	var stopVspeed = true;
+	if (vSpeed < -1) {
+		if (!place_meeting(x+slideCornerRange+hSpeed, y-2+vSpeed, pSolid)) {
+			hSpeed = 2;
+			stopVspeed = false;
+		}
+		
+		if (!place_meeting(x-slideCornerRange+hSpeed, y-2+vSpeed, pSolid)) {
+			hSpeed = -2;
+			stopVspeed = false;
+		}
+		
+		//Squish on Head Hurt
+		if (stopVspeed) {
+			squishX = squishOffset * 1.5;
+			squishY = -squishOffset * 0.3;
+		}
+	}
 	
+
 	//Reset Speed
 	moveY = 0;
-	vSpeed = 0;
+	
+	if (stopVspeed) {
+		moveY = 0;
+		vSpeed = 0;
+		allowHalfGravity = false;
+	}
 }
 y+=moveY;
 
@@ -120,10 +154,52 @@ var wasOnGround = onGround;
 onGround = place_meeting(x, y+1, pSolid);
 groundBelow = (onGround) ? instance_place(x, y+1, pSolid) : noone;
 
-//Land	
-if (!wasOnGround && onGround) {
+//Land Detection
+if (onGround && !wasOnGround) {
 	squishX = squishOffset;
-	squishY = -squishOffset;	
+	squishY = -squishOffset;
+	
+	//Reset
+	if (STATE == state.climb) {
+		STATE = state.base;	
+	}
+}
+
+
+
+//Climb
+timeSinceClimbing += time;
+if (wallInDirection != 0) {
+
+	//Remeber Wall
+	lastWallInDirection = wallInDirection;
+	lastWallMeeting = instance_place(x + wallInDirection, y, pSolid)
+
+	var climbing = (STATE == state.climb);
+
+	//Switch To Climb State
+	if (STATE == state.base) {
+		if (abs(lastOnFloorAtY - y) > 40) { //Must be at least 2.5 tiles off the ground
+			STATE = state.climb;	
+			climbing = true;
+		}
+	}
+
+	//Reset Tracking Of Time
+	if (climbing) {
+		timeSinceClimbing = -1;
+	}
+
+
+	//Reset STATE
+	if (lastWallMeeting == noone) {
+		wallInDirection = 0;
+		
+		//Exit Climb
+		if (climbing) {
+			STATE = state.base;
+		}
+	}
 }
 
 
@@ -135,16 +211,51 @@ if (Controller.jump) {
 }
 
 //Check Jump
+jumpCooldownTicks -= time;
 if (jumpTicks > 0) {
 	jumpTicks -= time;
 	
 	//Coyottee Time AND Wait for until on ground.
-	if (timeSinceOnGround < coyoteeMaxTime) {
+	var onGroundJump = timeSinceOnGround < coyoteeMaxTime && jumpCooldownTicks < 0;
+	var wallJump = timeSinceClimbing < wallClimbCoyoteeTime && (directionFacing == -lastWallInDirection || !canVerticalClimb);
+	var verticalClimb = canVerticalClimb && directionFacing == lastWallInDirection;
+	
+	if (onGroundJump || wallJump) {
 		
-		//Jump
-		vSpeed = jumpSpeed + vMomentum; 
+		//Jump Universal
 		jumpTicks = 0;
-		squishX = -squishOffset;
-		squishY = squishOffset;
+		jumpCooldownTicks = coyoteeMaxTime + 2;
+		
+		//Set Speeds
+		if (onGroundJump) {
+			vSpeed = jumpSpeed + vMomentum; 
+			squishX = -squishOffset;
+			squishY = squishOffset;
+		}
+		
+		//Jump Off Wall 
+		if (wallJump) {
+			
+			//Decide Vector
+			var spd = wallJumpSpeed;
+			var jumpingAngle = 90 + lastWallInDirection*wallJumpAngle;
+			
+			hSpeed = lengthdir_x(spd, jumpingAngle) + hMomentum;	
+			vSpeed = lengthdir_y(spd, jumpingAngle) + vMomentum; 
+			
+			squishX = -squishOffset*1.3;
+			squishY = squishOffset*1.25;
+			
+			//Cannot Turn Around For A Short Amount of Time if I can't climb stragit
+			airFrictionMultiplierLerp *= canVerticalClimb;
+		}
+		
+		if (verticalClimb) {
+			
+			vSpeed = wallJumpSpeed + vMomentum; 
+			squishX = -squishOffset;
+			squishY = squishOffset;
+		
+		}
 	}
 }

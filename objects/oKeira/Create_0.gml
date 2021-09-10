@@ -16,22 +16,26 @@ vMomentum = 0;
 //Air Friction
 onGround = true;
 doAirFriction = true;
-airFrictionValue = 0.06;
+airFrictionValue = 0.08;
 airFrictionMultiplierLerp = 0;
 groundBelow = noone;
 timeSinceOnGround = 1; //-1 means on ground
 
 //Mpve
 walkSpeed = 1;
-minRunSpeed = 2.6;
+minRunSpeed = 3.2;
 maxRunSpeed = minRunSpeed+1;
 
 //Jump
-jumpSpeed = -7.8;
-coyoteeMaxTime = 5;
+jumped = false;
+jumpCooldownTicks = 0;
+jumpSpeed = -8.3;
+coyoteeMaxTime = 8;
 preLandJumpsTime = 7;
 jumpTicks = -1;
 cutVspd = false;
+slideCornerRange = 8;
+
 
 //Grav
 myGrav = 0.35;
@@ -48,7 +52,20 @@ turnSpeed = 0.2;
 squishX = 1;
 squishY = 1;
 squishOffset = 0.3;
-sqiushElasticity = 0.3;
+sqiushElasticity = 0.2;
 blend = c_white;
 alpha = 1;
 
+//Climbing
+climbingGravMulti = 0.5;
+climbingTermVel = 3;
+wallInDirection = 0;
+lastWallInDirection = 0;
+lastWallMeeting = noone;
+lastOnFloorAtY = y;
+timeSinceClimbing = 2; //-1 is climbing
+wallJumpAngle = 30;
+wallJumpSpeed = 7.65;
+wallClimbCoyoteeTime = 4;
+
+canVerticalClimb = false;

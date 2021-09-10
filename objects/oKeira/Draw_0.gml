@@ -8,9 +8,11 @@ directionFacingSmooth -= (directionFacing - directionFacingSmooth) * turnSpeed;
 var xsc = directionFacing * (1 + squishX);
 var ysc = (1 + squishY);
 
-var drawX = round(x);
-var drawY = round(y);
+var drawX = (x);
+var drawY = (y);
 
 draw_sprite_ext(sprite_index, image_index, drawX, drawY, xsc, ysc, 0, blend, alpha);
 
+/*
 draw_text(x, y-30, "(" + string(x) + ", " + string(y) + ")")
+draw_text(x, y-20, "(" + string(STATE) + ")")
