@@ -29,8 +29,8 @@ if (timeSinceOnGround > -1) {
 //Horizontal Movement
 
 //Get Input
-var hController = Controller.right - Controller.left;
-var mx = hController;
+controllerHorizontalMovementInput = Controller.right - Controller.left;
+var mx = controllerHorizontalMovementInput;
 
 //Get Friction Values
 var slideValBase = airFrictionValue;
@@ -85,8 +85,14 @@ if (inAir) {
 hSpeed = sign(hSpeed) * floor(abs(hSpeed) * 100) / 100;
 directionFacing = (hSpeed != 0) ? sign(hSpeed) : directionFacing;
 
-
+//
+//
 //Collide and Move
+
+//Update Mask
+mask_index = mask;
+
+//Horizontal
 var moveX = (hSpeed)*time*power(0.99, time);
 if (place_meeting(x + moveX, y, pSolid)) {
 	
@@ -259,3 +265,6 @@ if (jumpTicks > 0) {
 		}
 	}
 }
+
+//Update Visuals
+event_user(0);

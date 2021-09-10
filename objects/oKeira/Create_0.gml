@@ -2,6 +2,7 @@
 
 inControl = true;
 STATE = state.base;
+mask = sKeiraIdle;
 
 runAcc = 0;
 traction = 0.9;
@@ -25,6 +26,7 @@ timeSinceOnGround = 1; //-1 means on ground
 walkSpeed = 1;
 minRunSpeed = 3.2;
 maxRunSpeed = minRunSpeed+1;
+controllerHorizontalMovementInput = 0
 
 //Jump
 jumped = false;
