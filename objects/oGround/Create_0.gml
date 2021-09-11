@@ -1,2 +1,2 @@
 /// @desc
-traction = 0.3;
+event_inherited();

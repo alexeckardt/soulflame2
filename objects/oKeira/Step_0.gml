@@ -36,7 +36,14 @@ var mx = controllerHorizontalMovementInput;
 var slideValBase = airFrictionValue;
 var inAir = !onGround;
 if (!inAir) {
-	slideValBase = (groundBelow != noone) ? groundBelow.traction : 0.3;
+	
+	if (mx == 0 || mx == -sign(round(hSpeed))) {
+		//Turning Around or Stopping
+		slideValBase = (groundBelow != noone) ? groundBelow.tractionEnd : 0.3;
+	} else {
+		//Start Running
+		slideValBase = (groundBelow != noone) ? groundBelow.tractionStart : 0.3;
+	}
 }
 
 //Movement Multpliers
