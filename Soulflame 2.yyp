@@ -1,10 +1,12 @@
 {
   "resources": [
     {"id":{"name":"oKeira","path":"objects/oKeira/oKeira.yy",},"order":3,},
+    {"id":{"name":"sKeiraPunch0Back","path":"sprites/sKeiraPunch0Back/sKeiraPunch0Back.yy",},"order":5,},
     {"id":{"name":"mouse_get_x_gui","path":"scripts/mouse_get_x_gui/mouse_get_x_gui.yy",},"order":1,},
     {"id":{"name":"sSolid","path":"sprites/sSolid/sSolid.yy",},"order":0,},
     {"id":{"name":"oGround","path":"objects/oGround/oGround.yy",},"order":1,},
     {"id":{"name":"pSolid","path":"objects/pSolid/pSolid.yy",},"order":0,},
+    {"id":{"name":"sKeiraPunch0Front","path":"sprites/sKeiraPunch0Front/sKeiraPunch0Front.yy",},"order":4,},
     {"id":{"name":"sBarrel","path":"sprites/sBarrel/sBarrel.yy",},"order":2,},
     {"id":{"name":"sprite_switch_to","path":"scripts/sprite_switch_to/sprite_switch_to.yy",},"order":3,},
     {"id":{"name":"mouse_get_y_gui","path":"scripts/mouse_get_y_gui/mouse_get_y_gui.yy",},"order":2,},
