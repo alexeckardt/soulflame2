@@ -273,5 +273,44 @@ if (jumpTicks > 0) {
 	}
 }
 
+//Attack Input
+if (Controller.lightAttackPressed) {
+		
+	//Based On Input at Time
+	//if ()
+		nextAttack = state.light_neutral;
+		
+	//Allow input before current attack is finished.
+	wantToChangeAttackTicks = timeForPreAttacks;
+}
+
+//Switch To Next Attack
+if (nextAttack != state.height) {
+	
+	//Allow for input of attacks before finished current attack
+	wantToChangeAttackTicks -= time;
+	if (wantToChangeAttackTicks > 0) {
+		
+		//Make Sure Attack is finished
+		if (STATE == state.base) {
+			
+			//Set New Attack
+			STATE = nextAttack;
+			
+			//Reset Animation (Otherwise will end if Playing same one)
+			image_index = 0;
+			useFront = !useFront;
+			
+			//Reset Goal
+			nextAttack = state.height;
+		}
+	}
+}
+
+
+
+
+
+
 //Update Visuals
 event_user(0);

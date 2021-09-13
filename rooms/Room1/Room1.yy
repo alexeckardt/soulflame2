@@ -28,6 +28,7 @@
         {"properties":[],"isDnd":false,"objectId":{"name":"oGround","path":"objects/oGround/oGround.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":13.0,"scaleY":5.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":544.0,"y":192.0,"resourceVersion":"1.0","name":"inst_52AE8948","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"oGround","path":"objects/oGround/oGround.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":17.0,"scaleY":8.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1008.0,"y":544.0,"resourceVersion":"1.0","name":"inst_6E9C422B","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"oGround","path":"objects/oGround/oGround.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":5.0,"scaleY":7.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":240.0,"y":384.0,"resourceVersion":"1.0","name":"inst_6E7E1D04","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"oAttackTarget","path":"objects/oAttackTarget/oAttackTarget.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":256.0,"y":672.0,"resourceVersion":"1.0","name":"inst_349B585F","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":100,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":16,"gridY":16,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Instances","tags":[],"resourceType":"GMRInstanceLayer",},
     {"instances":[
         {"properties":[],"isDnd":false,"objectId":{"name":"oKeira","path":"objects/oKeira/oKeira.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":160.0,"y":512.0,"resourceVersion":"1.0","name":"inst_284D1167","tags":[],"resourceType":"GMRInstance",},
@@ -56,6 +57,7 @@
     {"name":"inst_52AE8948","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_6E9C422B","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_6E7E1D04","path":"rooms/Room1/Room1.yy",},
+    {"name":"inst_349B585F","path":"rooms/Room1/Room1.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

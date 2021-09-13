@@ -71,3 +71,16 @@ wallJumpSpeed = 7.65;
 wallClimbCoyoteeTime = 4;
 
 canVerticalClimb = false;
+
+//Attacking / Combat
+displayReadyPosForTime = -1;
+nextAttack = state.height;
+wantToChangeAttackTicks = -1;
+timeForPreAttacks = 8;
+
+useFront = true;
+
+
+//Visuals
+idleSprite = sKeiraIdle;
+readySprite = sKeiraIdleReady;

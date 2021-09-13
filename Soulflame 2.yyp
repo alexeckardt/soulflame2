@@ -1,5 +1,6 @@
 {
   "resources": [
+    {"id":{"name":"sKeiraIdleReady","path":"sprites/sKeiraIdleReady/sKeiraIdleReady.yy",},"order":6,},
     {"id":{"name":"oKeira","path":"objects/oKeira/oKeira.yy",},"order":3,},
     {"id":{"name":"sKeiraPunch0Back","path":"sprites/sKeiraPunch0Back/sKeiraPunch0Back.yy",},"order":5,},
     {"id":{"name":"mouse_get_x_gui","path":"scripts/mouse_get_x_gui/mouse_get_x_gui.yy",},"order":1,},
@@ -16,6 +17,7 @@
     {"id":{"name":"enum_state","path":"scripts/enum_state/enum_state.yy",},"order":0,},
     {"id":{"name":"sKeiraRun","path":"sprites/sKeiraRun/sKeiraRun.yy",},"order":3,},
     {"id":{"name":"oSpinningSquare","path":"objects/oSpinningSquare/oSpinningSquare.yy",},"order":2,},
+    {"id":{"name":"oAttackTarget","path":"objects/oAttackTarget/oAttackTarget.yy",},"order":4,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
   "Options": [

@@ -13,8 +13,11 @@ horizontalStick = 0;
 jump = false;
 jumpHeld = false;
 
-attack = false;
-attackPressed = false;
+lightAttack = false;
+lightAttackPressed = false;
+
+heavyAttack = false;
+heavyAttackPressed = false;
 
 block = false;
 blockPressed = false;
