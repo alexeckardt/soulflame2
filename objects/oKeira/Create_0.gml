@@ -77,6 +77,7 @@ displayReadyPosForTime = -1;
 nextAttack = state.height;
 wantToChangeAttackTicks = -1;
 timeForPreAttacks = 8;
+attackSpeed = 0.4;
 
 useFront = true;
 
@@ -84,3 +85,4 @@ useFront = true;
 //Visuals
 idleSprite = sKeiraIdle;
 readySprite = sKeiraIdleReady;
+attackSprite = sKeiraPunch0Front;

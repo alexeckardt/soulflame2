@@ -1,5 +1,6 @@
 {
   "resources": [
+    {"id":{"name":"keira_decide_attack_sprite","path":"scripts/keira_decide_attack_sprite/keira_decide_attack_sprite.yy",},"order":4,},
     {"id":{"name":"sKeiraPunchHeavyFront","path":"sprites/sKeiraPunchHeavyFront/sKeiraPunchHeavyFront.yy",},"order":7,},
     {"id":{"name":"sKeiraIdleReady","path":"sprites/sKeiraIdleReady/sKeiraIdleReady.yy",},"order":6,},
     {"id":{"name":"oKeira","path":"objects/oKeira/oKeira.yy",},"order":3,},

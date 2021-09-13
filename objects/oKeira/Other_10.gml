@@ -33,21 +33,15 @@ switch (STATE) {
 	//
 	//Base
 	case state.combat_neutral:
+	case state.combat_horizontal:
 	
-		//Choose Sprs
-		var spr, overlaySpr;
-		if (useFront) {
-			spr = sKeiraPunch0Front;
-		} else {
-			spr = sKeiraPunch0Back;	
-		}
 		
 		//Set Sprite
-		sprite_switch_to(spr);
-		image_speed = 0.4;
+		sprite_switch_to(attackSprite);
+		image_speed = attackSpeed;
 		displayReadyPosForTime = room_speed;
 		
-		//Update Dire
+		//Update Direction Facing
 		if (image_index < 1) {
 			var h = Controller.horizontalStick;
 			directionFacing = (h != 0) ? sign(h) : directionFacing;	
@@ -59,7 +53,6 @@ switch (STATE) {
 		resetStateOnAnimationFinish = true;
 	
 	break;
-	
 	
 }	
 

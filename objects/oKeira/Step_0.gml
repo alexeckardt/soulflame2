@@ -281,11 +281,11 @@ if (Controller.combatAttackPressed) {
 		
 	//Based On Input at Time
 	var horizontalAttack = abs(Controller.horizontalStick) > 0.5;
-	var upAttack = (Controller.verticalStick) < 0.5;
+	var upAttack = (Controller.verticalStick) < -0.5;
 	var downAttack = (Controller.verticalStick) > 0.5;
 	
 	//Decide Attack
-	if (!onGround) {
+	if (onGround) {
 		
 		if (horizontalAttack) {
 			nextAttack = state.combat_horizontal;
@@ -301,10 +301,6 @@ if (Controller.combatAttackPressed) {
 		
 	}
 	
-	
-	
-		
-		
 	//Allow input before current attack is finished.
 	wantToChangeAttackTicks = timeForPreAttacks;
 }
@@ -326,12 +322,15 @@ if (nextAttack != state.height) {
 			image_index = 0;
 			useFront = !useFront;
 			
+			//Decide Attack Sprites
+			keira_decide_attack_sprite(nextAttack);
+			
 			//Reset Goal
 			nextAttack = state.height;
+		
 		}
 	}
 }
-
 
 
 
