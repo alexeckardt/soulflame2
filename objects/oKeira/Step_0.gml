@@ -312,5 +312,5 @@ if (nextAttack != state.height) {
 
 
 
-//Update Visuals
+//States
 event_user(0);

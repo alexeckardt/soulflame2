@@ -1,4 +1,4 @@
-/// @desc Decide Visuals
+/// @desc State Effects + Visuals
 
 var time = Controller.delta;
 var resetStateOnAnimationFinish = false;
@@ -24,6 +24,9 @@ switch (STATE) {
 			
 		}
 	
+		var giveControl = (true); //Replace When Cutscenes Appear
+		inControl = giveControl;
+	
 	
 	break;
 	
@@ -39,13 +42,20 @@ switch (STATE) {
 			spr = sKeiraPunch0Back;	
 		}
 		
-		
-		
+		//Set Sprite
 		sprite_switch_to(spr);
 		image_speed = 0.4;
 		displayReadyPosForTime = room_speed;
 		
+		//Update Dire
+		if (image_index < 1) {
+			var h = Controller.horizontalStick;
+			directionFacing = (h != 0) ? sign(h) : directionFacing;	
+		}
 		
+		//
+		//Set Attributes
+		inControl = false;
 		resetStateOnAnimationFinish = true;
 	
 	break;
@@ -53,9 +63,10 @@ switch (STATE) {
 	
 }	
 
-//Reset Check F
-if (resetStateOnAnimationFinish) {
-	if (image_index + image_speed >= image_number - image_speed) {
+//Animation Complete Events
+if (image_index + image_speed >= image_number - image_speed) {
+	
+	if (resetStateOnAnimationFinish) {
 		STATE = state.base;
-	}	
-}
+	}
+}	

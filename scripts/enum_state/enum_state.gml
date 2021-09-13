@@ -9,16 +9,35 @@ enum state {
 	climb,
 	hurt,
 	
-	light_neutral,
-	light_horizontal,
-	light_up,
-	light_down,
+	//Change With Weapons
 	
-	light_air_horizontal,
-	light_air_up,
-	light_air_down,
+	light_neutral,			//Quick Jabs and Round House Kicks
+	light_horizontal,		//Heavy Attacks (heavy Swing, Heavy Kick)
+	light_up,				//"Slap" Swing Upwards
+	light_down,				//Leg Sweep (Spiderman)
 	
-	brace,
+	light_air_neutral,		//
+	light_air_horizontal,	//Front House Kick
+	light_air_up,			//Sky Upper Cut (To Hit Things Above)
+	light_air_down,			//Kick Jump (If Hits enemy it will jump again)
+	
+	
+	//Constant
+	
+	//Magic Moves, Require Mana and Skill Unlock
+	special_neutral,		//
+	special_horizontal,		// 
+	special_up,				// Flaming Sky Uppercut
+	special_down,			// Wild Fire
+	
+	special_air_neutral,	//
+	special_air_horizontal,	// 
+	special_air_up,			// Rocket Boost Upwards (A Second Double Jump Option)
+	special_air_down,		// Ground Pound
+	
+	dash,
+	
+	blocking, // Hold, Blocks Incoming Attacks if correct type vs weapon
 	
 	height
 }
