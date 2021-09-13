@@ -99,8 +99,11 @@ directionFacing = (hSpeed != 0) ? sign(hSpeed) : directionFacing;
 //Update Mask
 mask_index = mask;
 
+//If Particularily Long Break, Don't Shoot Out of the map
+var lagDampen = power(0.95, max(1,time));
+
 //Horizontal
-var moveX = (hSpeed)*time*power(0.99, time);
+var moveX = (hSpeed)*time*lagDampen
 if (place_meeting(x + moveX, y, pSolid)) {
 	
 	//Approach Wall until meeting
@@ -122,7 +125,7 @@ x += moveX;
 
 //Vertical Collide
 timeSinceOnGround += time;
-var moveY = (vSpeed)*time*power(0.99, time);
+var moveY = (vSpeed)*time*lagDampen;
 if (place_meeting(x, y+moveY, pSolid)) {
 
 	//Back Onto Wall
@@ -274,11 +277,33 @@ if (jumpTicks > 0) {
 }
 
 //Attack Input
-if (Controller.lightAttackPressed) {
+if (Controller.combatAttackPressed) {
 		
 	//Based On Input at Time
-	//if ()
-		nextAttack = state.light_neutral;
+	var horizontalAttack = abs(Controller.horizontalStick) > 0.5;
+	var upAttack = (Controller.verticalStick) < 0.5;
+	var downAttack = (Controller.verticalStick) > 0.5;
+	
+	//Decide Attack
+	if (!onGround) {
+		
+		if (horizontalAttack) {
+			nextAttack = state.combat_horizontal;
+		} else 
+		if (upAttack) {
+			//nextAttack = state.combat_up;	
+		} else
+		if (downAttack) {
+			//nextAttack = state.combat_down;
+		} else {
+			nextAttack = state.combat_neutral;
+		}
+		
+	}
+	
+	
+	
+		
 		
 	//Allow input before current attack is finished.
 	wantToChangeAttackTicks = timeForPreAttacks;

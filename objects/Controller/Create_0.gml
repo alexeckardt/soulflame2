@@ -5,16 +5,17 @@ delta_scale = 60;
 usingController = gamepad_is_connected(0);
 gamepadDeadzone = 0.3;
 
+horizontalStick = 0;
+verticalStick = 0;
 
 left = false;
 right = false;
-horizontalStick = 0;
 
 jump = false;
 jumpHeld = false;
 
-lightAttack = false;
-lightAttackPressed = false;
+combatAttack = false;
+combatAttackPressed = false;
 
 heavyAttack = false;
 heavyAttackPressed = false;

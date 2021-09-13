@@ -11,15 +11,15 @@ enum state {
 	
 	//Change With Weapons
 	
-	light_neutral,			//Quick Jabs and Round House Kicks
-	light_horizontal,		//Heavy Attacks (heavy Swing, Heavy Kick)
-	light_up,				//"Slap" Swing Upwards
-	light_down,				//Leg Sweep (Spiderman)
+	combat_neutral,			//Quick Jabs and Round House Kicks
+	combat_horizontal,		//Heavy Attacks (heavy Swing, Heavy Kick)
+	combat_up,				//"Slap" Swing Upwards
+	combat_down,				//Leg Sweep (Spiderman)
 	
-	light_air_neutral,		//
-	light_air_horizontal,	//Front House Kick
-	light_air_up,			//Sky Upper Cut (To Hit Things Above)
-	light_air_down,			//Kick Jump (If Hits enemy it will jump again)
+	combat_air_neutral,		//
+	combat_air_horizontal,	//Front House Kick
+	combat_air_up,			//Sky Upper Cut (To Hit Things Above)
+	combat_air_down,			//Kick Jump (If Hits enemy it will jump again)
 	
 	
 	//Constant

@@ -7,16 +7,20 @@ if (usingController) {
 	//Set Deadzone
 	gamepad_set_axis_deadzone(0, gamepadDeadzone);
 
-	//Left and Right
+	//Stick Numbs
 	horizontalStick = gamepad_axis_value(0, gp_axislh);
+	verticalStick = gamepad_axis_value(0, gp_axislv);
+	
+
+	//Left and Right
 	left = gamepad_axis_value(0, gp_axislh) < 0;
 	right = gamepad_axis_value(0, gp_axislh) > 0;
 	
 	jump = gamepad_button_check_pressed(0, gp_face1);
 	jumpHeld = gamepad_button_check(0, gp_face1);
 	
-	lightAttack = gamepad_button_check(0, gp_face3);
-	lightAttackPressed = gamepad_button_check_pressed(0, gp_face3);
+	combatAttack = gamepad_button_check(0, gp_face3);
+	combatAttackPressed = gamepad_button_check_pressed(0, gp_face3);
 	
 	heavyAttack = gamepad_button_check(0, gp_face2);
 	heavyAttackPressed = gamepad_button_check_pressed(0, gp_face2);

@@ -32,7 +32,7 @@ switch (STATE) {
 	
 	//
 	//Base
-	case state.light_neutral:
+	case state.combat_neutral:
 	
 		//Choose Sprs
 		var spr, overlaySpr;
