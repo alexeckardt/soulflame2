@@ -46,11 +46,11 @@ if (!inAir) {
 	}
 }
 
-//Movement Multpliers
-
+//Movement Multipliers
+var runSpeedMulti = 1;
 
 //Goal
-var hSpeedGoal = mx * minRunSpeed * time * power(0.99, time);
+var hSpeedGoal = mx * minRunSpeed * time * power(0.99, time) * runSpeedMulti;
 var originalHSpeedGoal = hSpeedGoal;
 
 if (inAir) {
@@ -280,21 +280,26 @@ if (jumpTicks > 0) {
 if (Controller.combatAttackPressed) {
 		
 	//Based On Input at Time
+	checkingForHold = true;
+	timeLeftForHoldCheck = holdCheckTime;
+	
+									//Take H Momentum into account here
 	var horizontalAttack = abs(Controller.horizontalStick) > 0.5;
+	var runAttack = abs(hSpeed) > minRunSpeed - 0.5 && horizontalAttack;
 	var upAttack = (Controller.verticalStick) < -0.5;
 	var downAttack = (Controller.verticalStick) > 0.5;
 	
 	//Decide Attack
 	if (onGround) {
 		
-		if (horizontalAttack) {
-			nextAttack = state.combat_horizontal;
+		if (runAttack) {
+			nextAttack = state.combat_running;
 		} else 
+		if (horizontalAttack) {
+			//nextAttack = state.combat_htilt;	
+		} else
 		if (upAttack) {
 			//nextAttack = state.combat_up;	
-		} else
-		if (downAttack) {
-			//nextAttack = state.combat_down;
 		} else {
 			nextAttack = state.combat_neutral;
 		}
@@ -308,27 +313,52 @@ if (Controller.combatAttackPressed) {
 //Switch To Next Attack
 if (nextAttack != state.height) {
 	
-	//Allow for input of attacks before finished current attack
-	wantToChangeAttackTicks -= time;
-	if (wantToChangeAttackTicks > 0) {
+	//Check For Holding the Button instead of pressing it
+	if (checkingForHold) {
 		
-		//Make Sure Attack is finished
-		if (STATE == state.base) {
-			
-			//Set New Attack
-			STATE = nextAttack;
-			
-			//Reset Animation (Otherwise will end if Playing same one)
-			image_index = 0;
-			useFront = !useFront;
-			
-			//Decide Attack Sprites
-			keira_decide_attack_sprite(nextAttack);
-			
-			//Reset Goal
-			nextAttack = state.height;
+		//Decrease Time
+		timeLeftForHoldCheck-=time;
 		
+		if (timeLeftForHoldCheck < 0 || !Controller.combatAttack) {
+			attackIsHolding = Controller.combatAttack;
+			checkingForHold = false;
+			
+			//convert_to_holding_combat_states();
+			if (attackIsHolding) {
+				if (nextAttack == state.combat_neutral) {
+					nextAttack = state.combat_neutralhold;	
+				}
+			}
 		}
+		
+	}
+	
+	//If Check is Complete (even on this step cycle), wait until next allowed attack (in in range)
+	if (!checkingForHold) {
+	
+		//Allow for input of attacks before finished current attack
+		wantToChangeAttackTicks -= time;
+		if (wantToChangeAttackTicks > 0) {
+		
+			//Make Sure Attack is finished
+			if (STATE == state.base) {
+			
+				//Set New Attack
+				STATE = nextAttack;
+			
+				//Reset Animation (Otherwise will end if Playing same one)
+				image_index = 0;
+				useFront = !useFront;
+			
+				//Decide Attack Sprites
+				keira_decide_attack_sprite(nextAttack);
+			
+				//Reset Goal
+				nextAttack = state.height;
+		
+			}
+		}
+		
 	}
 }
 

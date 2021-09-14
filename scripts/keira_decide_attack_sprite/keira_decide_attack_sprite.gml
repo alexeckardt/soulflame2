@@ -13,23 +13,28 @@ function keira_decide_attack_sprite(_nextState){
 		case state.combat_neutral:
 			
 			attackSprite = (useFront) ? sKeiraPunch0Front : sKeiraPunch0Back;
-			attackSpeed = 0.4;
+			attackSpeed = 0.5;
 			
 			break;
 		
-		case state.combat_horizontal:
+		case state.combat_neutralhold:
 		
 			attackSprite = (useFront) ? sKeiraPunchHeavyFront : sKeiraPunchHeavyFront;
-			attackSpeed = 0.4;
+			attackSpeed = 0.35;
 		
 			break;
-		/*
+		
 		case state.combat_up:
 			break;
 		
-		case state.combat_down:
-			break;
+		//case state.combat_down:
+			
+		//	attackSprite = sKeiraKickHeavy;
+		//	attackSpeed = 0.35;
 		
+		//	break;
+		
+		/*
 		case state.combat_air_neutral:
 			break;
 		

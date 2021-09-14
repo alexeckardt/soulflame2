@@ -33,7 +33,8 @@ switch (STATE) {
 	//
 	//Base
 	case state.combat_neutral:
-	case state.combat_horizontal:
+	case state.combat_running:
+	case state.combat_neutralhold:
 	
 		
 		//Set Sprite
@@ -42,7 +43,7 @@ switch (STATE) {
 		displayReadyPosForTime = room_speed;
 		
 		//Update Direction Facing
-		if (image_index < 1) {
+		if (image_index < 1.5) {
 			var h = Controller.horizontalStick;
 			directionFacing = (h != 0) ? sign(h) : directionFacing;	
 		}

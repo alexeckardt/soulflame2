@@ -24,9 +24,8 @@ timeSinceOnGround = 1; //-1 means on ground
 
 //Mpve
 walkSpeed = 1;
-minRunSpeed = 3.2;
-maxRunSpeed = minRunSpeed+1;
-controllerHorizontalMovementInput = 0
+minRunSpeed = 4.2;
+controllerHorizontalMovementInput = 0;
 
 //Jump
 jumped = false;
@@ -78,6 +77,13 @@ nextAttack = state.height;
 wantToChangeAttackTicks = -1;
 timeForPreAttacks = 8;
 attackSpeed = 0.4;
+
+comboNumber = 0;
+
+holdCheckTime = 8; //4 Frames
+timeLeftForHoldCheck = 0;
+attackIsHolding = false;
+checkingForHold = true;
 
 useFront = true;
 

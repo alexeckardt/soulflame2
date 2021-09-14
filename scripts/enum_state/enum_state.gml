@@ -12,9 +12,9 @@ enum state {
 	//Change With Weapons
 	
 	combat_neutral,			//Quick Jabs and Round House Kicks
-	combat_horizontal,		//Heavy Attacks (heavy Swing, Heavy Kick)
-	combat_up,				//"Slap" Swing Upwards
-	combat_down,				//Leg Sweep (Spiderman)
+	combat_neutralhold,	//Heavy Attacks (heavy Swing, Heavy Kick)
+	combat_running,			//Running Attack with small recovery
+	combat_up,				//Punch Upwards
 	
 	combat_air_neutral,		//
 	combat_air_horizontal,	//Front House Kick
