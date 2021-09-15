@@ -279,11 +279,6 @@ if (jumpTicks > 0) {
 //Attack Input
 if (Controller.combatAttackPressed) {
 		
-	//Based On Input at Time
-	checkingForHold = true;
-	timeLeftForHoldCheck = holdCheckTime;
-	
-									
 	var horizontalAttackReq = abs(Controller.horizontalStick) > 0.5;
 	
 					//Take H Momentum into account here
@@ -316,52 +311,27 @@ if (Controller.combatAttackPressed) {
 //Switch To Next Attack
 if (nextAttack != state.height) {
 	
-	//Check For Holding the Button instead of pressing it
-	if (checkingForHold) {
+	//Allow for input of attacks before finished current attack
+	wantToChangeAttackTicks -= time;
+	if (wantToChangeAttackTicks > 0) {
 		
-		//Decrease Time
-		timeLeftForHoldCheck-=time;
-		
-		if (timeLeftForHoldCheck < 0 || !Controller.combatAttack) {
-			attackIsHolding = Controller.combatAttack;
-			checkingForHold = false;
+		//Make Sure Attack is finished
+		if (STATE == state.base) {
 			
-			//convert_to_holding_combat_states();
-			//if (attackIsHolding) {
-			//	if (nextAttack == state.combat_neutral) {
-			//		nextAttack = state.combat_neutralhold;	
-			//	}
-			//}
+			//Set New Attack
+			STATE = nextAttack;
+			
+			//Reset Animation (Otherwise will end if Playing same one)
+			image_index = 0;
+			useFront = !useFront;
+			
+			//Decide Attack Sprites
+			keira_decide_attack_sprite(nextAttack);
+			
+			//Reset Goal
+			nextAttack = state.height;
+		
 		}
-		
-	}
-	
-	//If Check is Complete (even on this step cycle), wait until next allowed attack (in in range)
-	if (!checkingForHold) {
-	
-		//Allow for input of attacks before finished current attack
-		wantToChangeAttackTicks -= time;
-		if (wantToChangeAttackTicks > 0) {
-		
-			//Make Sure Attack is finished
-			if (STATE == state.base) {
-			
-				//Set New Attack
-				STATE = nextAttack;
-			
-				//Reset Animation (Otherwise will end if Playing same one)
-				image_index = 0;
-				useFront = !useFront;
-			
-				//Decide Attack Sprites
-				keira_decide_attack_sprite(nextAttack);
-			
-				//Reset Goal
-				nextAttack = state.height;
-		
-			}
-		}
-		
 	}
 }
 

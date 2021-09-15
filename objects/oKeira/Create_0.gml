@@ -80,13 +80,7 @@ attackSpeed = 0.4;
 
 comboNumber = 0;
 
-holdCheckTime = 8; //4 Frames
-timeLeftForHoldCheck = 0;
-attackIsHolding = false;
-checkingForHold = true;
-
 useFront = true;
-
 
 //Visuals
 idleSprite = sKeiraIdle;
