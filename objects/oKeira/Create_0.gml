@@ -22,7 +22,7 @@ airFrictionMultiplierLerp = 0;
 groundBelow = noone;
 timeSinceOnGround = 1; //-1 means on ground
 
-//Mpve
+//Move
 walkSpeed = 1;
 minRunSpeed = 4.2;
 controllerHorizontalMovementInput = 0;

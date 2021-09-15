@@ -34,7 +34,7 @@ switch (STATE) {
 	//Base
 	case state.combat_neutral:
 	case state.combat_running:
-	case state.combat_neutralhold:
+	case state.combat_htilt:
 	
 		
 		//Set Sprite

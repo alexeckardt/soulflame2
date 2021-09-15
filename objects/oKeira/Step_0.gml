@@ -283,9 +283,12 @@ if (Controller.combatAttackPressed) {
 	checkingForHold = true;
 	timeLeftForHoldCheck = holdCheckTime;
 	
-									//Take H Momentum into account here
-	var horizontalAttack = abs(Controller.horizontalStick) > 0.5;
-	var runAttack = abs(hSpeed) > minRunSpeed - 0.5 && horizontalAttack;
+									
+	var horizontalAttackReq = abs(Controller.horizontalStick) > 0.5;
+	
+					//Take H Momentum into account here
+	var runAttack = abs(hSpeed) > minRunSpeed - 0.5 && horizontalAttackReq;
+	var doHTilt = horizontalAttackReq && Controller.hStickTimeInSameInput < room_speed/2;
 	var upAttack = (Controller.verticalStick) < -0.5;
 	var downAttack = (Controller.verticalStick) > 0.5;
 	
@@ -295,8 +298,8 @@ if (Controller.combatAttackPressed) {
 		if (runAttack) {
 			nextAttack = state.combat_running;
 		} else 
-		if (horizontalAttack) {
-			//nextAttack = state.combat_htilt;	
+		if (doHTilt) {
+			nextAttack = state.combat_htilt;	
 		} else
 		if (upAttack) {
 			//nextAttack = state.combat_up;	
@@ -324,11 +327,11 @@ if (nextAttack != state.height) {
 			checkingForHold = false;
 			
 			//convert_to_holding_combat_states();
-			if (attackIsHolding) {
-				if (nextAttack == state.combat_neutral) {
-					nextAttack = state.combat_neutralhold;	
-				}
-			}
+			//if (attackIsHolding) {
+			//	if (nextAttack == state.combat_neutral) {
+			//		nextAttack = state.combat_neutralhold;	
+			//	}
+			//}
 		}
 		
 	}

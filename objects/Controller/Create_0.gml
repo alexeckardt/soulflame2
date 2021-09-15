@@ -6,7 +6,11 @@ usingController = gamepad_is_connected(0);
 gamepadDeadzone = 0.3;
 
 horizontalStick = 0;
+hStickTimeInSameInput = 0;
+
 verticalStick = 0;
+vStickTimeInSameInput = 0;
+
 
 left = false;
 right = false;

@@ -12,7 +12,7 @@ enum state {
 	//Change With Weapons
 	
 	combat_neutral,			//Quick Jabs and Round House Kicks
-	combat_neutralhold,	//Heavy Attacks (heavy Swing, Heavy Kick)
+	combat_htilt,			//Heavy Punch / Kicks
 	combat_running,			//Running Attack with small recovery
 	combat_up,				//Punch Upwards
 	

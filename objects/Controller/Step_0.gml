@@ -7,9 +7,19 @@ if (usingController) {
 	//Set Deadzone
 	gamepad_set_axis_deadzone(0, gamepadDeadzone);
 
-	//Stick Numbs
-	horizontalStick = gamepad_axis_value(0, gp_axislh);
-	verticalStick = gamepad_axis_value(0, gp_axislv);
+	//Stick Input Values
+	
+		//Time In Horizontal
+		hStickTimeInSameInput += delta;
+		var hStickLast = horizontalStick;
+		horizontalStick = gamepad_axis_value(0, gp_axislh);
+		if (hStickLast != horizontalStick) hStickTimeInSameInput = 0;
+	
+		//Time In Vertical
+		vStickTimeInSameInput += delta;
+		var vStickLast = verticalStick;
+		verticalStick = gamepad_axis_value(0, gp_axislh);
+		if (vStickLast != verticalStick) vStickTimeInSameInput = 0;
 	
 
 	//Left and Right

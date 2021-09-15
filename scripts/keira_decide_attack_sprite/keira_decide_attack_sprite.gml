@@ -17,10 +17,10 @@ function keira_decide_attack_sprite(_nextState){
 			
 			break;
 		
-		case state.combat_neutralhold:
+		case state.combat_htilt:
 		
 			attackSprite = (useFront) ? sKeiraPunchHeavyFront : sKeiraPunchHeavyFront;
-			attackSpeed = 0.35;
+			attackSpeed = 0.4;
 		
 			break;
 		
