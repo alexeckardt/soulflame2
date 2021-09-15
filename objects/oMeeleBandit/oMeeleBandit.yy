@@ -8,8 +8,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "pSolid",
-    "path": "objects/pSolid/pSolid.yy",
+    "name": "Enemy",
+    "path": "objects/Enemy/Enemy.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -25,12 +25,13 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Enemy",
-    "path": "folders/Entity/Enemy.yy",
+    "name": "Objects",
+    "path": "folders/Entity/Enemy/Objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "oMeeleBandit",

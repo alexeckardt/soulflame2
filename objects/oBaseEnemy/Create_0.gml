@@ -6,6 +6,9 @@ event_inherited();
 //Update Attributes
 
 
+//Generate Hit Box
+
+
 //Self Variables
 
 

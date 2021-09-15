@@ -1,5 +1,7 @@
 /// @desc
 
+gameObj = Game.id;
+
 //Attributes
 //
 //
@@ -10,24 +12,30 @@
 	hp = 10;
 
 	//Movement
-	hSpeed = 0;
-	vSpeed = 0;
 	weight = 1;
+	doCollision = true;
 	
 	//Damage
+	hitboxes = ds_list_create();
 	effectiveDamageTypes = [];
 	resistedDamageTypes = [];
 	
 	
-	
-//Other Variables
+//Other Variables that *Should* be used by each enemy
 //
 //
 	hitReactionTimeLeft = -1;
+	myGrav = 0.35;
 	STATE = state.base;
 
+	//Moveing
+	hSpeed = 0;
+	vSpeed = 0;
+	onGround = 0;
+	timeSinceOnGround = 0;
+
 	//Alignment
-	random_set_seed(Game.gameSeed);
+	random_set_seed(gameObj.gameSeed);
 	alignment = choose(-1, 1);
 	healthyPercent = 0;
 

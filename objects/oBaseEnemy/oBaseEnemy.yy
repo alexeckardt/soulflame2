@@ -5,8 +5,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "pSolid",
-    "path": "objects/pSolid/pSolid.yy",
+    "name": "Solid",
+    "path": "objects/Solid/Solid.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,

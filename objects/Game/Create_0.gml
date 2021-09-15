@@ -1,4 +1,5 @@
 /// @desc
+randomize();
 
 //Save File info
 saveFileName = "keira_0.sav";
