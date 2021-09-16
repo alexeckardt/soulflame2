@@ -83,6 +83,9 @@ damageCreateXoffset = 10;
 damageCreateYoffset = 0;
 damageCreateWidth	= 28;
 damageCreateHeight	= 15;
+damageKnockbackMulti = 0;
+damageKnockbackAddHSpeed = 0;
+damageKnockbackAddVSpeed = 0;
 
 
 useFront = true;

@@ -27,13 +27,21 @@ gameObj = Game.id;
 //
 	hitReactionTimeLeft = -1;
 	invulnerableTicks = 0;
-	myGrav = 0.35;
+	myGrav = 0.3; //PLayer is 0.35?
 	STATE = state.base;
 
 	//Moveing
-	hSpeed = 0;
-	vSpeed = 0;
+		controlHSpeed = 0; //Vector the Object itself should control for movement
+		controlVSpeed = 0;
+		knockbackHSpeed = 0; //Hspd Added To Knockback
+		knockbackVSpeed = 0;
+		hSpeed = 0; //Comboination
+		vSpeed = 0;
+
+	
+
 	onGround = 0;
+	groundBelow = noone
 	timeSinceOnGround = 0;
 
 	//Alignment

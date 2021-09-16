@@ -59,7 +59,6 @@ function generic_collide_solid() {
 	y+=moveY;
 
 	//Update On Ground
-	var wasOnGround = onGround;
 	onGround = place_meeting(x, y+1, Solid);
 	groundBelow = (onGround) ? instance_place(x, y+1, Solid) : noone
 

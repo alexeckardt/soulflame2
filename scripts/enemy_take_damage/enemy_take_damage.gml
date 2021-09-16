@@ -17,14 +17,15 @@ function enemy_take_damage() {
 		
 		
 		//Knockback
-			var knockbackPosX = damageingObject.knockbackFromX;
-			var knockbackPosY = damageingObject.knockbackFromY;
-			var knockbackAmount = damageingObject.knockbackMulti * 3 / weight;
+			var knockbackStrength = damageingObject.knockbackAmount;
 		
-			var angleFromKnockbackToHitBox = point_direction(knockbackPosX, knockbackPosY, hitboxTakingDamage.x, hitboxTakingDamage.y);
-		
-			hSpeed += lengthdir_x(knockbackAmount, angleFromKnockbackToHitBox);
-			vSpeed += lengthdir_y(knockbackAmount, angleFromKnockbackToHitBox);
+			//Vector
+			var dd = point_direction(damageingObject.knockbackFromX, damageingObject.knockbackFromY, x, y);
+			var str = (knockbackStrength) / weight;
+
+			//Add
+			knockbackHSpeed += lengthdir_x(str, dd) + damageingObject.addToHSpeed;
+			knockbackVSpeed += lengthdir_y(str, dd) + damageingObject.addToVSpeed;
 			
 			
 		//Reset
