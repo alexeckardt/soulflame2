@@ -17,6 +17,7 @@ gameObj = Game.id;
 	
 	//Damage
 	hitboxes = ds_list_create();
+	hitboxTakingDamage = noone;
 	effectiveDamageTypes = [];
 	resistedDamageTypes = [];
 	

@@ -7,3 +7,8 @@ xoffset = 0;
 yoffset = 0;
 hitboxWidth = 16;
 hitboxHeight = 16;
+
+//Sprite Collision
+sprite_index = sHitboxArea;
+mask_index = -1;
+sprW = sprite_get_width(sprite_index);

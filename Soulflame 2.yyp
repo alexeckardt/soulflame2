@@ -2,6 +2,7 @@
   "resources": [
     {"id":{"name":"Player","path":"objects/Player/Player.yy",},"order":3,},
     {"id":{"name":"keira_decide_attack_sprite","path":"scripts/keira_decide_attack_sprite/keira_decide_attack_sprite.yy",},"order":4,},
+    {"id":{"name":"sHitboxArea","path":"sprites/sHitboxArea/sHitboxArea.yy",},"order":11,},
     {"id":{"name":"sKeiraPunchHeavyFront","path":"sprites/sKeiraPunchHeavyFront/sKeiraPunchHeavyFront.yy",},"order":7,},
     {"id":{"name":"enemy_take_damage","path":"scripts/enemy_take_damage/enemy_take_damage.yy",},"order":0,},
     {"id":{"name":"initialRoom","path":"rooms/initialRoom/initialRoom.yy",},"order":1,},
