@@ -2,6 +2,9 @@
 
 var time = Game.delta;
 
+//Take Damage 
+enemy_take_damage();
+
 //Collision
 generic_collide_solid();
 

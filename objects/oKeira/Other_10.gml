@@ -59,6 +59,10 @@ switch (STATE) {
 				damageObj = damage_create(-1, temp_damageVal, dxx, dyy);
 				damageObj.image_xscale = damageCreateWidth * sign(directionFacing+0.001);
 				damageObj.image_yscale = damageCreateHeight;
+				
+				//Knockback Comes From Center Of Keira's Mass
+				damageObj.knockbackFromX = x;
+				damageObj.knockbackFromY = y - 32;
 			}
 		
 		}

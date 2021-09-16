@@ -8,6 +8,9 @@ yoffset = 0;
 hitboxWidth = 16;
 hitboxHeight = 16;
 
+//
+hitboxLocked = false;
+
 //Sprite Collision
 sprite_index = sHitboxArea;
 mask_index = -1;

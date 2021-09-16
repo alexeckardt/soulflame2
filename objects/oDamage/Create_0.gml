@@ -12,13 +12,15 @@ damageType		= 0;
 
 
 //Edit After Fact
-
 canDamageEnemies = true;
 knockbackMulti = 1;
 sprite_index = sDamageHitbox;
 image_xscale = 1;
 image_yscale = 1;
 life = 3;
+
+knockbackFromX = x;
+knockbackFromY = y;
 
 //Constants
 mask_index = -1;

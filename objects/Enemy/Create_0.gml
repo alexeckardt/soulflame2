@@ -26,6 +26,7 @@ gameObj = Game.id;
 //
 //
 	hitReactionTimeLeft = -1;
+	invulnerableTicks = 0;
 	myGrav = 0.35;
 	STATE = state.base;
 
