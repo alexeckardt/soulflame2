@@ -12,3 +12,6 @@ hitboxHeight = 16;
 sprite_index = sHitboxArea;
 mask_index = -1;
 sprW = sprite_get_width(sprite_index);
+
+damagesMeeting = ds_list_create();
+damagingObjectId = noone;
