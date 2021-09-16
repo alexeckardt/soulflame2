@@ -10,13 +10,13 @@ if (usingController) {
 	//Stick Input Values
 	
 		//Time In Horizontal
-		hStickTimeInSameInput += delta;
+		hStickTimeInSameInput += Game.delta;
 		var hStickLast = horizontalStick;
 		horizontalStick = gamepad_axis_value(0, gp_axislh);
 		if (hStickLast != horizontalStick) hStickTimeInSameInput = 0;
 	
 		//Time In Vertical
-		vStickTimeInSameInput += delta;
+		vStickTimeInSameInput += Game.delta;
 		var vStickLast = verticalStick;
 		verticalStick = gamepad_axis_value(0, gp_axislh);
 		if (vStickLast != verticalStick) vStickTimeInSameInput = 0;

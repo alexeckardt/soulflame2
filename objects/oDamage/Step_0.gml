@@ -8,3 +8,6 @@ if (followCreator) {
 
 //Die After Time
 life -= Game.delta;
+if (life < 0) {
+	instance_destroy();
+}	
