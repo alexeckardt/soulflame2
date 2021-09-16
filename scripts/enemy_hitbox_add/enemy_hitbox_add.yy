@@ -7,6 +7,8 @@
   },
   "resourceVersion": "1.0",
   "name": "enemy_hitbox_add",
-  "tags": [],
+  "tags": [
+    "combat",
+  ],
   "resourceType": "GMScript",
 }

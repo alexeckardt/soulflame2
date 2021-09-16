@@ -2,13 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Scripts",
-    "path": "folders/Scripts.yy",
+    "name": "Enums",
+    "path": "folders/Enums.yy",
   },
   "resourceVersion": "1.0",
-  "name": "damage_create",
-  "tags": [
-    "combat",
-  ],
+  "name": "enum_damage_type",
+  "tags": [],
   "resourceType": "GMScript",
 }

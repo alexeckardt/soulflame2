@@ -33,6 +33,8 @@
   },
   "resourceVersion": "1.0",
   "name": "Enemy",
-  "tags": [],
+  "tags": [
+    "combat",
+  ],
   "resourceType": "GMObject",
 }

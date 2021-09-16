@@ -7,6 +7,8 @@
   },
   "resourceVersion": "1.0",
   "name": "keira_decide_attack_sprite",
-  "tags": [],
+  "tags": [
+    "combat",
+  ],
   "resourceType": "GMScript",
 }

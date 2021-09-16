@@ -34,6 +34,8 @@
   },
   "resourceVersion": "1.0",
   "name": "oKeira",
-  "tags": [],
+  "tags": [
+    "combat",
+  ],
   "resourceType": "GMObject",
 }

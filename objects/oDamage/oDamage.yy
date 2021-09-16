@@ -29,6 +29,8 @@
   },
   "resourceVersion": "1.0",
   "name": "oDamage",
-  "tags": [],
+  "tags": [
+    "combat",
+  ],
   "resourceType": "GMObject",
 }

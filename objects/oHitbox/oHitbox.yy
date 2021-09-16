@@ -31,6 +31,8 @@
   },
   "resourceVersion": "1.0",
   "name": "oHitbox",
-  "tags": [],
+  "tags": [
+    "combat",
+  ],
   "resourceType": "GMObject",
 }
