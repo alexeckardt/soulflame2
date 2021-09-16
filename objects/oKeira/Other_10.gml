@@ -52,10 +52,13 @@ switch (STATE) {
 			if (!createdDamage) {
 				createdDamage = true;
 				
-				var damageVal = 10;
-				damageObj = damage_create(-1, damageVal, x + directionFacing*12, y-32);
-				damageObj.image_xscale = 28 * sign(directionFacing+0.001);
-				damageObj.image_yscale = 15;
+				var temp_damageVal = 10;
+				var dxx = x + damageCreateXoffset*directionFacing;
+				var dyy = y + damageCreateYoffset;
+				
+				damageObj = damage_create(-1, temp_damageVal, dxx, dyy);
+				damageObj.image_xscale = damageCreateWidth * sign(directionFacing+0.001);
+				damageObj.image_yscale = damageCreateHeight;
 			}
 		
 		}

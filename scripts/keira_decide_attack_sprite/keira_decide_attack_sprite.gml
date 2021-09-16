@@ -15,12 +15,23 @@ function keira_decide_attack_sprite(_nextState){
 			attackSprite = (useFront) ? sKeiraPunch0Front : sKeiraPunch0Back;
 			attackSpeed = 0.5;
 			
+			damageCreateXoffset	= 12;
+			damageCreateYoffset	= -32;
+			damageCreateWidth	= 28;
+			damageCreateHeight	= 15;
+			
+			
 			break;
 		
 		case state.combat_htilt:
 		
 			attackSprite = (useFront) ? sKeiraPunchHeavyFront : sKeiraPunchHeavyFront;
 			attackSpeed = 0.4;
+			
+			damageCreateXoffset	= 20;
+			damageCreateYoffset	= -40;
+			damageCreateWidth	= 38;
+			damageCreateHeight	= 30;
 		
 			break;
 		

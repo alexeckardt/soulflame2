@@ -79,6 +79,11 @@ timeForPreAttacks = 15;
 attackSpeed = 0.4;
 createdDamage = false;
 comboNumber = 0;
+damageCreateXoffset = 10;
+damageCreateYoffset = 0;
+damageCreateWidth	= 28;
+damageCreateHeight	= 15;
+
 
 useFront = true;
 

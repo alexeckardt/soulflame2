@@ -3,6 +3,7 @@
     {"id":{"name":"Player","path":"objects/Player/Player.yy",},"order":3,},
     {"id":{"name":"keira_decide_attack_sprite","path":"scripts/keira_decide_attack_sprite/keira_decide_attack_sprite.yy",},"order":4,},
     {"id":{"name":"sKeiraPunchHeavyFront","path":"sprites/sKeiraPunchHeavyFront/sKeiraPunchHeavyFront.yy",},"order":7,},
+    {"id":{"name":"enemy_take_damage","path":"scripts/enemy_take_damage/enemy_take_damage.yy",},"order":0,},
     {"id":{"name":"initialRoom","path":"rooms/initialRoom/initialRoom.yy",},"order":1,},
     {"id":{"name":"sKeiraIdleReady","path":"sprites/sKeiraIdleReady/sKeiraIdleReady.yy",},"order":6,},
     {"id":{"name":"oDamage","path":"objects/oDamage/oDamage.yy",},"order":4,},
@@ -77,6 +78,7 @@
     {"folderPath":"folders/Entity/NPC.yy","order":3,"resourceVersion":"1.0","name":"NPC","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Entity/Enemy/Objects.yy","order":2,"resourceVersion":"1.0","name":"Objects","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Entity/Enemy/Scripts.yy","order":3,"resourceVersion":"1.0","name":"Scripts","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Entity/Scripts.yy","order":4,"resourceVersion":"1.0","name":"Scripts","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},
