@@ -1,6 +1,6 @@
-/// @desc State Effects + Visuals
+/// @desc State Events + Visuals
 
-var time = Controller.delta;
+var time = Game.delta;
 var resetStateOnAnimationFinish = false;
 
 switch (STATE) {
@@ -46,6 +46,18 @@ switch (STATE) {
 		if (image_index < 1.5) {
 			var h = Controller.horizontalStick;
 			directionFacing = (h != 0) ? sign(h) : directionFacing;	
+		} else {
+		
+			//Create Damage
+			if (!createdDamage) {
+				createdDamage = true;
+				
+				var damageVal = 10;
+				damageObj = damage_create(-1, damageVal, x + directionFacing*12, y-32);
+				damageObj.image_xscale = 28 * sign(directionFacing+0.001);
+				damageObj.image_yscale = 15;
+			}
+		
 		}
 		
 		//

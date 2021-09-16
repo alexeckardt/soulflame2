@@ -5,7 +5,7 @@
 //
 function generic_collide_solid() {
 
-	var time = Controller.delta;
+	var time = Game.delta;
 	var lagDampen = power(0.95, time);
 
 	//Horizontal Collide

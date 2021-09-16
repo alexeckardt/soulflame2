@@ -75,9 +75,9 @@ canVerticalClimb = false;
 displayReadyPosForTime = -1;
 nextAttack = state.height;
 wantToChangeAttackTicks = -1;
-timeForPreAttacks = 8;
+timeForPreAttacks = 15;
 attackSpeed = 0.4;
-
+createdDamage = false;
 comboNumber = 0;
 
 useFront = true;

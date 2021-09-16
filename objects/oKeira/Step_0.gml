@@ -1,7 +1,7 @@
 /// @desc
 
 //Use time Time
-var time = Controller.delta;
+var time = Game.delta;
 
 
 //Gravity
@@ -328,9 +328,9 @@ if (nextAttack != state.height) {
 			//Decide Attack Sprites
 			keira_decide_attack_sprite(nextAttack);
 			
-			//Reset Goal
+			//Reset Vars
 			nextAttack = state.height;
-		
+			createdDamage = false;
 		}
 	}
 }

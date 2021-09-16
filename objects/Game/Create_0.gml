@@ -10,3 +10,8 @@ gameSeed = irandom(100);
 persistance = ds_map_create();
 
 //Game Settings
+
+
+//Game Keep Track Of
+delta = -1;
+delta_scale = 60;

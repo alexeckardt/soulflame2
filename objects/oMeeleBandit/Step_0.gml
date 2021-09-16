@@ -1,6 +1,6 @@
 /// @desc
 
-var time = Controller.delta;
+var time = Game.delta;
 
 //Collision
 generic_collide_solid();
