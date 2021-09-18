@@ -18,7 +18,7 @@ if (usingController) {
 		//Time In Vertical
 		vStickTimeInSameInput += Game.delta;
 		var vStickLast = verticalStick;
-		verticalStick = gamepad_axis_value(0, gp_axislh);
+		verticalStick = gamepad_axis_value(0, gp_axislv);
 		if (vStickLast != verticalStick) vStickTimeInSameInput = 0;
 	
 

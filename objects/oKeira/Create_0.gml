@@ -86,6 +86,8 @@ damageCreateHeight	= 15;
 damageKnockbackMulti = 0;
 damageKnockbackAddHSpeed = 0;
 damageKnockbackAddVSpeed = 0;
+tiltTime = room_speed/2
+adjustDirectionFacingPreDamage = true;
 
 
 useFront = true;

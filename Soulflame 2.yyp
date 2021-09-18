@@ -6,6 +6,7 @@
     {"id":{"name":"sKeiraPunchHeavyFront","path":"sprites/sKeiraPunchHeavyFront/sKeiraPunchHeavyFront.yy",},"order":7,},
     {"id":{"name":"enemy_take_damage","path":"scripts/enemy_take_damage/enemy_take_damage.yy",},"order":1,},
     {"id":{"name":"initialRoom","path":"rooms/initialRoom/initialRoom.yy",},"order":1,},
+    {"id":{"name":"sKeiraUppercut","path":"sprites/sKeiraUppercut/sKeiraUppercut.yy",},"order":12,},
     {"id":{"name":"sKeiraIdleReady","path":"sprites/sKeiraIdleReady/sKeiraIdleReady.yy",},"order":6,},
     {"id":{"name":"oDamage","path":"objects/oDamage/oDamage.yy",},"order":4,},
     {"id":{"name":"meta_object_create","path":"scripts/meta_object_create/meta_object_create.yy",},"order":6,},

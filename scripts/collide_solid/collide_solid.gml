@@ -34,6 +34,7 @@ function generic_collide_solid() {
 		}
 	
 		//Slide Around Corner
+		/*
 		var stopVspeed = true;
 		if (vSpeed < -1) {
 			if (!place_meeting(x+slideCornerRange+hSpeed, y-2+vSpeed, Solid)) {
@@ -45,16 +46,15 @@ function generic_collide_solid() {
 				hSpeed = -2;
 				stopVspeed = false;
 			}
-		}
+		}*/
 
 		//Reset Speed
 		moveY = 0;
 	
-		if (stopVspeed) {
+		//if (stopVspeed) {
 			moveY = 0;
 			vSpeed = 0;
-			allowHalfGravity = false;
-		}
+		//}
 	}
 	y+=moveY;
 

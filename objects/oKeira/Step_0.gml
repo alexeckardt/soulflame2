@@ -283,9 +283,9 @@ if (Controller.combatAttackPressed) {
 	
 					//Take H Momentum into account here
 	var runAttack = abs(hSpeed) > minRunSpeed - 0.5 && horizontalAttackReq;
-	var doHTilt = horizontalAttackReq && Controller.hStickTimeInSameInput < room_speed/2;
-	var upAttack = (Controller.verticalStick) < -0.5;
-	var downAttack = (Controller.verticalStick) > 0.5;
+	var doHTilt = horizontalAttackReq && Controller.hStickTimeInSameInput < tiltTime;
+	var upAttack = (Controller.verticalStick) < -0.5 && Controller.vStickTimeInSameInput < tiltTime;
+	var downAttack = (Controller.verticalStick) > 0.5 && Controller.vStickTimeInSameInput < tiltTime;
 	
 	//Decide Attack
 	if (onGround) {
@@ -297,7 +297,7 @@ if (Controller.combatAttackPressed) {
 			nextAttack = state.combat_htilt;	
 		} else
 		if (upAttack) {
-			//nextAttack = state.combat_up;	
+			nextAttack = state.combat_up;	
 		} else {
 			nextAttack = state.combat_neutral;
 		}
