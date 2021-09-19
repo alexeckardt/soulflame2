@@ -70,17 +70,88 @@ switch (STATE) {
 				damageObj.knockbackAmount = damageKnockbackMulti;
 				damageObj.knockbackFromX = x;
 				damageObj.knockbackFromY = y - 4;
-				damageObj.addToHSpeed = damageKnockbackAddHSpeed;
+				
+				//Add Vector
 				damageObj.addToVSpeed = damageKnockbackAddVSpeed;
+				if (damageKnockbackAddHspeedRelative) {
+					damageObj.addToHSpeed = damageKnockbackAddHSpeed*directionFacing;} else {
+					damageObj.addToHSpeed = damageKnockbackAddHSpeed;}
 			}
 		
 		}
 		
 		//
 		//Set Attributes
-		inControl = false;
+		inControl = image_index > allowControlOverIndex;
 		resetStateOnAnimationFinish = true;
 	
+	break;
+	
+	case state.combat_slide:
+	
+		sprite_switch_to(attackSprite);
+		image_speed = attackSpeed;
+		inControl = false;
+		
+		//Stay In Loop
+		if (attackSprite = slideActivateSprite) {
+			if (image_index + image_speed >= image_number - image_speed) {
+				attackSprite = slideLoopSprite;
+			}
+		}
+		
+		//Create Damage
+		if (!createdDamage) {
+			createdDamage = true;
+				
+			var temp_damageVal = 10;
+			var dxx = x + damageCreateXoffset*directionFacing;
+			var dyy = y + damageCreateYoffset;
+				
+			damageObj = damage_create(-1, temp_damageVal, dxx, dyy);
+			damageObj.image_xscale = damageCreateWidth * sign(directionFacing+0.001);
+			damageObj.image_yscale = damageCreateHeight;
+				
+			//Knockback Comes From Center Of Keira's Mass
+			damageObj.knockbackAmount = damageKnockbackMulti;
+			damageObj.knockbackFromX = x;
+			damageObj.knockbackFromY = y - 4;
+			
+			damageObj.addToHSpeed = damageKnockbackAddHSpeed;
+			damageObj.addToVSpeed = damageKnockbackAddVSpeed;
+			damageObj.allowLifeDecay = false;
+			damageObj.followCreator = true;
+		
+		} else {
+		
+			//If Hit Enemy, Cut Speed
+			if (damageObj.hasHitEnemyAllowUpdate) {
+				damageObj.hasHitEnemyAllowUpdate = false;
+				slideSpeed = lerp(slideSpeed, 0, 0.5);
+	
+			}	
+		
+		}
+	
+		//Reduce Speed
+		slideSpeed = lerp(slideSpeed, 0, slideSpeedReduction);
+	
+		//Set State To Recovery State
+		if (slideSpeed < 0.6) {
+			STATE = state.combat_slide_recover;
+			damageObj.allowLifeDecay = true;
+			damageObj.life = -1;
+		}
+	
+	break;
+	
+	//Recovery Animation States
+	case state.combat_slide_recover:
+		sprite_switch_to(slideRecoverSprite);
+		image_speed = attackSpeed;
+		inControl = false;
+		
+		resetStateOnAnimationFinish = true;
 	break;
 	
 }	
@@ -91,5 +162,6 @@ if (image_index + image_speed >= image_number - image_speed) {
 	if (resetStateOnAnimationFinish) {
 		STATE = state.base;
 		forceHalfGravity = false;
+		inControl = true;
 	}
 }	

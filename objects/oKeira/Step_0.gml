@@ -50,9 +50,17 @@ if (!inAir) {
 var runSpeedMulti = 1;
 
 //Goal
-var hSpeedGoal = mx * minRunSpeed * time * power(0.99, time) * runSpeedMulti;
-var originalHSpeedGoal = hSpeedGoal;
+var hspdGoalsMultipliers = time * power(0.99, time) * runSpeedMulti;
+var hSpeedGoal = mx * minRunSpeed * hspdGoalsMultipliers * inControl;
+var slidingHspdGoal = slidingInDirection * slideSpeed * hspdGoalsMultipliers;
 
+
+//CHanges
+if (STATE = state.combat_slide) { 
+	hSpeedGoal = slidingHspdGoal; 
+}
+
+var originalHSpeedGoal = hSpeedGoal;
 if (inAir) {
 
 	//In Air Speed Changes
@@ -79,7 +87,7 @@ if (inAir) {
 	airFrictionMultiplierLerp = 1;
 	
 	//Use Ground Friction
-	hSpeed = lerp(hSpeed, hSpeedGoal*inControl, slideValBase);
+	hSpeed = lerp(hSpeed, hSpeedGoal, slideValBase);
 	allowHalfGravity = true;
 	cutVspd = false;
 	
@@ -90,7 +98,7 @@ if (inAir) {
 }
 //Round Out
 hSpeed = sign(hSpeed) * floor(abs(hSpeed) * 100) / 100;
-directionFacing = (hSpeed != 0 && STATE == state.base) ? sign(hSpeed) : directionFacing;
+directionFacing = (hSpeed != 0 && inControl) ? sign(hSpeed) : directionFacing;
 
 //
 //
@@ -236,81 +244,83 @@ if (jumpTicks > 0) {
 	var wallJump = timeSinceClimbing < wallClimbCoyoteeTime && (directionFacing == -lastWallInDirection || !canVerticalClimb);
 	var verticalClimb = canVerticalClimb && directionFacing == lastWallInDirection;
 	
-	if (onGroundJump || wallJump) {
+	if (inControl) {
+		if (onGroundJump || wallJump) {
 		
-		//Jump Universal
-		jumpTicks = 0;
-		jumpCooldownTicks = coyoteeMaxTime + 2;
+			//Jump Universal
+			jumpTicks = 0;
+			jumpCooldownTicks = coyoteeMaxTime + 2;
 		
-		//Set Speeds
-		if (onGroundJump) {
-			vSpeed = jumpSpeed + vMomentum; 
-			squishX = -squishOffset;
-			squishY = squishOffset;
-		}
+			//Set Speeds
+			if (onGroundJump) {
+				vSpeed = jumpSpeed + vMomentum; 
+				squishX = -squishOffset;
+				squishY = squishOffset;
+			}
 		
-		//Jump Off Wall 
-		if (wallJump) {
+			//Jump Off Wall 
+			if (wallJump) {
 			
-			//Decide Vector
-			var spd = wallJumpSpeed;
-			var jumpingAngle = 90 + lastWallInDirection*wallJumpAngle;
+				//Decide Vector
+				var spd = wallJumpSpeed;
+				var jumpingAngle = 90 + lastWallInDirection*wallJumpAngle;
 			
-			hSpeed = lengthdir_x(spd, jumpingAngle) + hMomentum;	
-			vSpeed = lengthdir_y(spd, jumpingAngle) + vMomentum; 
+				hSpeed = lengthdir_x(spd, jumpingAngle) + hMomentum;	
+				vSpeed = lengthdir_y(spd, jumpingAngle) + vMomentum; 
 			
-			squishX = -squishOffset*1.3;
-			squishY = squishOffset*1.25;
+				squishX = -squishOffset*1.3;
+				squishY = squishOffset*1.25;
 			
-			//Cannot Turn Around For A Short Amount of Time if I can't climb stragit
-			airFrictionMultiplierLerp *= canVerticalClimb;
-		}
+				//Cannot Turn Around For A Short Amount of Time if I can't climb stragit
+				airFrictionMultiplierLerp *= canVerticalClimb;
+			}
 		
-		if (verticalClimb) {
+			if (verticalClimb) {
 			
-			vSpeed = wallJumpSpeed + vMomentum; 
-			squishX = -squishOffset;
-			squishY = squishOffset;
+				vSpeed = wallJumpSpeed + vMomentum; 
+				squishX = -squishOffset;
+				squishY = squishOffset;
 		
+			}
 		}
 	}
 }
 
 //Attack Input
 if (Controller.combatAttackPressed) {
-		
-	var horizontalAttackReq = abs(Controller.horizontalStick) > 0.5;
+	
+	var stickDeadzone = 0.25;
+	var horizontalAttackReq = abs(Controller.horizontalStick) > stickDeadzone;
+	var running = abs(hSpeed) > minRunSpeed - 1.5;
 	
 					//Take H Momentum into account here
-	var runAttack = abs(hSpeed) > minRunSpeed - 0.5 && horizontalAttackReq;
+	var runAttack = running && horizontalAttackReq;
 	var doHTilt = horizontalAttackReq && Controller.hStickTimeInSameInput < tiltTime;
-	var upAttack = (Controller.verticalStick) < -0.5 && Controller.vStickTimeInSameInput < tiltTime;
-	var downAttack = (Controller.verticalStick) > 0.5 && Controller.vStickTimeInSameInput < tiltTime;
+	var upAttack = (Controller.verticalStick) < -stickDeadzone && Controller.vStickTimeInSameInput < tiltTime;
+	var downAttack = (Controller.verticalStick) > stickDeadzone && Controller.vStickTimeInSameInput < tiltTime;
 	
 	//Decide Attack
 	if (onGround) {
 		
-		if (runAttack) {
-			
-			if (downAttack) {
-				nextAttack = state.combat_slide;
-				
-			} else {
-				nextAttack = state.combat_running;
-				
-			}
-			
-		} else 
 		if (doHTilt) {
 			nextAttack = state.combat_htilt;
 			
 		} else
+		if (runAttack) {
+			nextAttack = state.combat_running;
+			
+			
+		} else 
 		if (upAttack) {
 			nextAttack = state.combat_up;	
-			
+		
 		} else {
 			nextAttack = state.combat_neutral;
 			
+		}
+		
+		if (downAttack && running) {
+			nextAttack = state.combat_slide;
 		}
 		
 	} else {

@@ -86,10 +86,20 @@ damageCreateWidth	= 28;
 damageCreateHeight	= 15;
 damageKnockbackMulti = 0;
 damageKnockbackAddHSpeed = 0;
+damageKnockbackAddHspeedRelative = false; //to directionFacing
 damageKnockbackAddVSpeed = 0;
 tiltTime = room_speed/2
 adjustDirectionFacingPreDamage = true;
+allowControlOverIndex = 0;
 
+//Sliding
+slideSpeed = minRunSpeed*1.8;
+slideSpeedReduction = 0.06;
+slideMaxSpeed = slideSpeed;
+slidingInDirection = 0;
+slideActivateSprite = sKeiraSlideActivate;
+slideLoopSprite = sKeiraSlideLoop;
+slideRecoverSprite = sKeiraSlideRecover;
 
 useFront = true;
 

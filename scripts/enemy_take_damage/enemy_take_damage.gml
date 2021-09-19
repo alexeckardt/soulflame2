@@ -12,6 +12,12 @@ function enemy_take_damage() {
 		var damageingObject = hitboxTakingDamage.damagingObjectId;
 		var damageCreator = damageingObject.creator;
 	
+		//Send Info Back To Damage Object
+		damageingObject.enemyHitCount++;
+		ds_list_add(damageingObject.enemiesHit, id);
+		damageingObject.hasHitEnemy = true;
+		damageingObject.hasHitEnemyAllowUpdate = true;
+	
 		//Take Damage
 			hp -= 0;
 		

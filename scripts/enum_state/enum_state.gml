@@ -17,7 +17,7 @@ enum state {
 	combat_up,				//Punch Upwards
 	
 	combat_slide,			//Slide
-	combate_slide_recover,	//Recover
+	combat_slide_recover,	//Recover
 	
 	combat_air_neutral,		//
 	combat_air_horizontal,	//Front House Kick

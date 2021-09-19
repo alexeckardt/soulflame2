@@ -24,6 +24,7 @@ function keira_decide_attack_sprite(_nextState){
 			damageKnockbackAddVSpeed = -0.5;
 			
 			adjustDirectionFacingPreDamage = true;
+			allowControlOverIndex = -1;
 			
 			break;
 		
@@ -32,16 +33,17 @@ function keira_decide_attack_sprite(_nextState){
 			attackSprite = (useFront) ? sKeiraPunchHeavyFront : sKeiraPunchHeavyFront;
 			attackSpeed = 0.4;
 			
-			damageCreateXoffset	= 10;
+			damageCreateXoffset	= -5;
 			damageCreateYoffset	= -40;
-			damageCreateWidth	= 64;
+			damageCreateWidth	= 74;
 			damageCreateHeight	= 30;
 			damageKnockbackMulti = 6;
 			damageKnockbackAddHSpeed = 0;
 			damageKnockbackAddVSpeed = -3;
 			
 			adjustDirectionFacingPreDamage = true;
-
+			allowControlOverIndex = -1;
+			
 			break;
 		
 		case state.combat_up:
@@ -53,12 +55,13 @@ function keira_decide_attack_sprite(_nextState){
 			damageCreateYoffset	= -80;
 			damageCreateWidth	= 40;
 			damageCreateHeight	= 64;
-			damageKnockbackMulti = 2;
+			damageKnockbackMulti = 1.5;
 			damageKnockbackAddHSpeed = 0;
-			damageKnockbackAddVSpeed = -7;
+			damageKnockbackAddVSpeed = -9;
 			
 			adjustDirectionFacingPreDamage = false;
-		
+			allowControlOverIndex = 4;
+			
 			break;
 		
 		case state.combat_air_up:
@@ -66,9 +69,9 @@ function keira_decide_attack_sprite(_nextState){
 			attackSprite = sKeiraUppercut;
 			attackSpeed = 0.4;
 			
-			damageCreateXoffset	= 5;
+			damageCreateXoffset	= -30;
 			damageCreateYoffset	= -80;
-			damageCreateWidth	= 40;
+			damageCreateWidth	= 60;
 			damageCreateHeight	= 64;
 			damageKnockbackMulti = 2;
 			damageKnockbackAddHSpeed = 0;
@@ -76,13 +79,36 @@ function keira_decide_attack_sprite(_nextState){
 			
 			adjustDirectionFacingPreDamage = false;
 			forceHalfGravity = true;
+			allowControlOverIndex = 2;
 			
 			//Stay In Air Longer
+			vSpeed = min(0, vSpeed) - 5;
 			if (vSpeed > 0) {
 				vSpeed /= 2;	
 			}
 			
 			break;
+		
+		case state.combat_slide:
+		
+			attackSprite = sKeiraSlideActivate;
+			attackSpeed = 0.5;
+			
+			adjustDirectionFacingPreDamage = false;
+			slidingInDirection = directionFacing;
+			slideSpeed = slideMaxSpeed;
+			
+			damageCreateXoffset	= -25;
+			damageCreateYoffset	= -20;
+			damageCreateWidth	= 48;
+			damageCreateHeight	= 30;
+			damageKnockbackMulti = 6;
+			damageKnockbackAddHSpeed = slidingInDirection*3;
+			damageKnockbackAddVSpeed = -3;
+			allowControlOverIndex = -1;
+				
+			break;
+		
 		
 		//case state.combat_down:
 			
@@ -105,6 +131,13 @@ function keira_decide_attack_sprite(_nextState){
 	*/
 	
 	}
+
+	//Pre Fill Based On Sprite
+		//Control Sprite
+		allowControlOverIndex = (allowControlOverIndex == -1)
+									? sprite_get_number(attackSprite)
+									: allowControlOverIndex;
+
 
 
 	//}

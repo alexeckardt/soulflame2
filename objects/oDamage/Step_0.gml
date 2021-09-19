@@ -7,7 +7,7 @@ if (followCreator) {
 }
 
 //Die After Time
-life -= Game.delta;
+life -= Game.delta*allowLifeDecay;
 if (life < 0) {
 	instance_destroy();
 }	

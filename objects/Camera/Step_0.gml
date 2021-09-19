@@ -21,6 +21,8 @@ if (keyboard_check(vk_shift)) { x += 0.1; y += 0.05; }
 if (keyboard_check_pressed(vk_f11)) {
 	fullscreen = !fullscreen;
 	
+	scale = (fullscreen) ? 6 : 4;
+	display_reset(0, false);
 	//window_set_fullscreen(fullscreen);
 }
 

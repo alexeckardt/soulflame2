@@ -37,6 +37,7 @@
     {"id":{"name":"sKeiraIdle","path":"sprites/sKeiraIdle/sKeiraIdle.yy",},"order":1,},
     {"id":{"name":"enemy_hitbox_add","path":"scripts/enemy_hitbox_add/enemy_hitbox_add.yy",},"order":0,},
     {"id":{"name":"Controller","path":"objects/Controller/Controller.yy",},"order":1,},
+    {"id":{"name":"damage_check_if_enemy_hit","path":"scripts/damage_check_if_enemy_hit/damage_check_if_enemy_hit.yy",},"order":2,},
     {"id":{"name":"sBanditIdle","path":"sprites/sBanditIdle/sBanditIdle.yy",},"order":8,},
     {"id":{"name":"Camera","path":"objects/Camera/Camera.yy",},"order":0,},
     {"id":{"name":"enum_state","path":"scripts/enum_state/enum_state.yy",},"order":0,},

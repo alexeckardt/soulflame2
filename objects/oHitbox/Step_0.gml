@@ -1,4 +1,4 @@
-/// @desc Update Position
+/// @desc Reccognize Thake Damage
 
 //Update Bbox
 image_xscale = hitboxWidth / sprW; 
@@ -15,7 +15,6 @@ if (creator != noone) {
 
 //Damage Collision
 var canTakeDamage = creator.invulnerableTicks < 0 && !hitboxLocked;
-
 
 if (canTakeDamage) {
 	if (instance_exists(oDamage)) {
@@ -37,9 +36,14 @@ if (canTakeDamage) {
 						//Check Creator Not Already Taking Damage
 						if (creator.hitboxTakingDamage == noone) {
 						
-							//Take Damage
-							creator.hitboxTakingDamage = id;
-							damagingObjectId = dmgObj;
+							//Check If Creator has already been hit by this damage
+							var hasBeenHitAlready = damage_check_if_enemy_hit(dmgObj, creator);
+							if (!hasBeenHitAlready) {
+									
+								//Take Damage
+								creator.hitboxTakingDamage = id;
+								damagingObjectId = dmgObj;
+							}
 						}
 					
 						//Should No Longer Check
