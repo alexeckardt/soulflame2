@@ -129,7 +129,7 @@ function keira_decide_attack_sprite(_nextState){
 			allowControlOverIndex = 1;
 			
 			//Stay In Air Longer
-			vSpeed = min(0, vSpeed) - 5;
+			vSpeed = min(0, vSpeed) + jumpSpeed * combatInAirJumpCoefficient;
 			if (vSpeed > 0) {
 				vSpeed /= 2;}
 			

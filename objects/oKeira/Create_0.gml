@@ -36,7 +36,7 @@ jumpTicks = -1;
 cutVspd = false;
 slideCornerRange = 8;
 forceJump = false;
-
+combatInAirJumpCoefficient = 0.45;
 
 //Grav
 myGrav = 0.35;
@@ -104,6 +104,7 @@ slidingInDirection = 0;
 slideActivateSprite = sKeiraSlideActivate;
 slideLoopSprite = sKeiraSlideLoop;
 slideRecoverSprite = sKeiraSlideRecover;
+allowCombatAirUp = true;
 
 useFront = true;
 

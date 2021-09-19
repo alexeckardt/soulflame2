@@ -187,6 +187,11 @@ if (onGround && !wasOnGround) {
 	if (STATE == state.climb) {
 		STATE = state.base;	
 	}
+	
+	//Double Jump
+	
+	//Attacks
+	allowCombatAirUp = true;
 }
 
 
@@ -341,16 +346,20 @@ if (Controller.combatAttackPressed) {
 		
 	} else {
 		
-		if (doHTilt) {
-			nextAttack = state.combat_air_horizontal;
-			
-		} else
+		//Air Attacks
 		if (upAttack) {
-			nextAttack = state.combat_air_up;	
+			if (allowCombatAirUp) {
+				nextAttack = state.combat_air_up;
+				allowCombatAirUp = false;
+			}
 			
 		} else
 		if (downAttack) {
 			nextAttack = state.combat_air_down;
+			
+		} else 
+		if (doHTilt) {
+			nextAttack = state.combat_air_horizontal;
 			
 		} else {
 			nextAttack = state.combat_air_neutral;
