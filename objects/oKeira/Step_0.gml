@@ -64,7 +64,7 @@ var originalHSpeedGoal = hSpeedGoal;
 if (inAir) {
 
 	//In Air Speed Changes
-	var holdingOppositeInAir = (sign(mx) == -sign(hSpeedGoal) && mx != 0 && inAirTime > room_speed/2) * airFrictionValue*5;
+	var holdingOppositeInAir = (sign(mx) == -sign(hSpeedGoal) && mx != 0 && timeSinceOnGround > room_speed/2) * airFrictionValue*5;
 	
 	//Smooth Friction Amount
 	airFrictionMultiplierLerp = lerp(airFrictionMultiplierLerp, doAirFriction, airFrictionValue/2);
@@ -230,7 +230,7 @@ if (wallInDirection != 0) {
 
 //
 //Jump
-if (Controller.jump) {
+if (Controller.jump || forceJump) {
 	jumpTicks = preLandJumpsTime;	
 }
 
@@ -243,13 +243,29 @@ if (jumpTicks > 0) {
 	var onGroundJump = timeSinceOnGround < coyoteeMaxTime && jumpCooldownTicks < 0;
 	var wallJump = timeSinceClimbing < wallClimbCoyoteeTime && (directionFacing == -lastWallInDirection || !canVerticalClimb);
 	var verticalClimb = canVerticalClimb && directionFacing == lastWallInDirection;
+	var doubleJump = false;
+	var bounceOffEnemy = bouncingOffEnemy && forceJump;
 	
-	if (inControl) {
-		if (onGroundJump || wallJump) {
+	if (inControl || forceJump) {
+		if (onGroundJump || wallJump || bounceOffEnemy) {
 		
 			//Jump Universal
 			jumpTicks = 0;
 			jumpCooldownTicks = coyoteeMaxTime + 2;
+			forceJump = false;
+			bouncingOffEnemy = false;
+		
+			//Bounce Off Enemy
+			if (bounceOffEnemy) {
+				onGroundJump = false;
+				wallJump = false;
+				verticalClimb = false;
+				doubleJump = false;
+				
+				vSpeed = jumpSpeed * bounceJumpCoefficient + vMomentum; 
+				squishX = -squishOffset;
+				squishY = squishOffset;
+			}
 		
 			//Set Speeds
 			if (onGroundJump) {
@@ -326,7 +342,7 @@ if (Controller.combatAttackPressed) {
 	} else {
 		
 		if (doHTilt) {
-			//nextAttack = state.combat_htilt;
+			nextAttack = state.combat_air_horizontal;
 			
 		} else
 		if (upAttack) {
@@ -334,10 +350,10 @@ if (Controller.combatAttackPressed) {
 			
 		} else
 		if (downAttack) {
-			//nextAttack = state.combat_air_down;
+			nextAttack = state.combat_air_down;
 			
 		} else {
-			//nextAttack = state.combat_air_neutral;
+			nextAttack = state.combat_air_neutral;
 			
 		}
 	

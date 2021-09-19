@@ -64,31 +64,6 @@ function keira_decide_attack_sprite(_nextState){
 			
 			break;
 		
-		case state.combat_air_up:
-			
-			attackSprite = sKeiraUppercut;
-			attackSpeed = 0.4;
-			
-			damageCreateXoffset	= -30;
-			damageCreateYoffset	= -80;
-			damageCreateWidth	= 60;
-			damageCreateHeight	= 64;
-			damageKnockbackMulti = 2;
-			damageKnockbackAddHSpeed = 0;
-			damageKnockbackAddVSpeed = -7;
-			
-			adjustDirectionFacingPreDamage = false;
-			forceHalfGravity = true;
-			allowControlOverIndex = 2;
-			
-			//Stay In Air Longer
-			vSpeed = min(0, vSpeed) - 5;
-			if (vSpeed > 0) {
-				vSpeed /= 2;	
-			}
-			
-			break;
-		
 		case state.combat_slide:
 		
 			attackSprite = sKeiraSlideActivate;
@@ -110,25 +85,103 @@ function keira_decide_attack_sprite(_nextState){
 			break;
 		
 		
-		//case state.combat_down:
-			
-		//	attackSprite = sKeiraKickHeavy;
-		//	attackSpeed = 0.35;
+		//
+		//AIR
+		//
 		
-		//	break;
-		
-		/*
 		case state.combat_air_neutral:
+			
+			attackSprite = (useFront) ? sKeiraPunch0Front : sKeiraPunch0Back;
+			attackSpeed = 0.65;
+			
+			damageCreateXoffset	= 0;
+			damageCreateYoffset	= -32;
+			damageCreateWidth	= 45;
+			damageCreateHeight	= 15;
+			damageKnockbackMulti = 4;
+			damageKnockbackAddHSpeed = 0;
+			damageKnockbackAddVSpeed = -0.5;
+			
+			adjustDirectionFacingPreDamage = true;
+			allowControlOverIndex = 2;
+		
+			//Stay In Air Longer
+			forceHalfGravity = true;
+			
 			break;
 		
-		case state.combat_air_horizontal:
+		case state.combat_air_up:
+			
+			attackSprite = sKeiraUppercut;
+			attackSpeed = 0.4;
+			
+			damageCreateXoffset	= -30;
+			damageCreateYoffset	= -80;
+			damageCreateWidth	= 60;
+			damageCreateHeight	= 64;
+			damageKnockbackMulti = 2;
+			damageKnockbackAddHSpeed = 0;
+			damageKnockbackAddVSpeed = -7;
+			
+			adjustDirectionFacingPreDamage = false;
+			forceHalfGravity = true;
+			allowControlOverIndex = 1;
+			
+			//Stay In Air Longer
+			vSpeed = min(0, vSpeed) - 5;
+			if (vSpeed > 0) {
+				vSpeed /= 2;}
+			
 			break;
-		
-		
+			
 		case state.combat_air_down:
-			break;
+			
+			attackSprite = (useFront) ? sKeiraPunch0Front : sKeiraPunch0Back;
+			attackSpeed = 0.65;
+			
+			var w = 30;
+			
+			damageCreateXoffset	= -w/2;
+			damageCreateYoffset	= -16;
+			damageCreateWidth	= w;
+			damageCreateHeight	= 32;
+			damageKnockbackMulti = 4;
+			damageKnockbackAddHSpeed = 0;
+			damageKnockbackAddVSpeed = +1;
+			
+			adjustDirectionFacingPreDamage = true;
+			allowControlOverIndex = 1;
 		
-	*/
+			//Stay In Air Longer
+			forceHalfGravity = true;
+			
+			break;
+			
+		case state.combat_air_horizontal:
+			
+			attackSprite = (useFront) ? sKeiraPunch0Front : sKeiraPunch0Back;
+			attackSpeed = 0.4;
+			
+			var w = 30;
+			
+			damageCreateXoffset	= -w/2;
+			damageCreateYoffset	= -16;
+			damageCreateWidth	= w;
+			damageCreateHeight	= 45;
+			damageKnockbackMulti = 4;
+			damageKnockbackAddHSpeed = 0;
+			damageKnockbackAddVSpeed = +1;
+			
+			adjustDirectionFacingPreDamage = true;
+			allowControlOverIndex = 1;
+		
+			//Stay In Air Longer
+			forceHalfGravity = true;
+			if (vSpeed > 0) {
+				vSpeed /= 2;}
+				
+			break;
+
 	
 	}
 

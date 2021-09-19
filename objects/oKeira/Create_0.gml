@@ -6,7 +6,6 @@ mask = sKeiraIdle;
 
 runAcc = 0;
 traction = 0.9;
-onGround = true;
 
 hSpeed = 0;
 vSpeed = 0;
@@ -36,6 +35,7 @@ preLandJumpsTime = 7;
 jumpTicks = -1;
 cutVspd = false;
 slideCornerRange = 8;
+forceJump = false;
 
 
 //Grav
@@ -91,6 +91,8 @@ damageKnockbackAddVSpeed = 0;
 tiltTime = room_speed/2
 adjustDirectionFacingPreDamage = true;
 allowControlOverIndex = 0;
+bouncingOffEnemy = false;
+bounceJumpCoefficient = 0.8;
 
 //Sliding
 slideSpeed = minRunSpeed*1.8;
