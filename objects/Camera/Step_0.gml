@@ -17,6 +17,14 @@ speed = min(speed, 2.5);
 if (keyboard_check(vk_shift)) { x += 0.1; y += 0.05; }
 */
 
+//Fullscreen
+if (keyboard_check_pressed(vk_f11)) {
+	fullscreen = !fullscreen;
+	
+	//window_set_fullscreen(fullscreen);
+}
+
+
 //Goal
 if (instance_exists(target)) {	
 	if (target != noone) {

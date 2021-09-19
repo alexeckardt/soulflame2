@@ -43,6 +43,7 @@ myGrav = 0.35;
 terminalVelocity = 10;
 halfGravityThreshold = 0.8;
 allowHalfGravity = true;
+forceHalfGravity = false;
 
 //Display
 directionFacing = 1;

@@ -36,6 +36,7 @@ switch (STATE) {
 	case state.combat_running:
 	case state.combat_htilt:
 	case state.combat_up:
+	case state.combat_air_up:
 	
 		
 		//Set Sprite
@@ -45,8 +46,12 @@ switch (STATE) {
 		
 		//Update Direction Facing
 		if (image_index < 1.5) {
-			var h = Controller.horizontalStick;
-			directionFacing = (h != 0) ? sign(h) : directionFacing;	
+			
+			if (adjustDirectionFacingPreDamage) {
+				var h = Controller.horizontalStick;
+				directionFacing = (h != 0) ? sign(h) : directionFacing;	
+			}
+			
 		} else {
 		
 			//Create Damage
@@ -85,5 +90,6 @@ if (image_index + image_speed >= image_number - image_speed) {
 	
 	if (resetStateOnAnimationFinish) {
 		STATE = state.base;
+		forceHalfGravity = false;
 	}
 }	

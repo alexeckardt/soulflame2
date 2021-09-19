@@ -12,7 +12,7 @@ if (timeSinceOnGround > -1) {
 	var term = (STATE != state.climb) ? terminalVelocity : climbingTermVel;
 
 	//Gives Hang Time If Jump is Still Held
-	var mult = (abs(vSpeed) < halfGravityThreshold && Controller.jumpHeld && allowHalfGravity) ? 0.5 : 1;
+	var mult = (abs(vSpeed) < halfGravityThreshold && (Controller.jumpHeld || forceHalfGravity) && allowHalfGravity) ? 0.5 : 1;
 	
 	//Add Gravity
 	vSpeed = min(vSpeed + grav*mult*time, term);
@@ -90,7 +90,7 @@ if (inAir) {
 }
 //Round Out
 hSpeed = sign(hSpeed) * floor(abs(hSpeed) * 100) / 100;
-directionFacing = (hSpeed != 0) ? sign(hSpeed) : directionFacing;
+directionFacing = (hSpeed != 0 && STATE == state.base) ? sign(hSpeed) : directionFacing;
 
 //
 //
@@ -291,16 +291,46 @@ if (Controller.combatAttackPressed) {
 	if (onGround) {
 		
 		if (runAttack) {
-			nextAttack = state.combat_running;
+			
+			if (downAttack) {
+				nextAttack = state.combat_slide;
+				
+			} else {
+				nextAttack = state.combat_running;
+				
+			}
+			
 		} else 
 		if (doHTilt) {
-			nextAttack = state.combat_htilt;	
+			nextAttack = state.combat_htilt;
+			
 		} else
 		if (upAttack) {
 			nextAttack = state.combat_up;	
+			
 		} else {
 			nextAttack = state.combat_neutral;
+			
 		}
+		
+	} else {
+		
+		if (doHTilt) {
+			//nextAttack = state.combat_htilt;
+			
+		} else
+		if (upAttack) {
+			nextAttack = state.combat_air_up;	
+			
+		} else
+		if (downAttack) {
+			//nextAttack = state.combat_air_down;
+			
+		} else {
+			//nextAttack = state.combat_air_neutral;
+			
+		}
+	
 		
 	}
 	

@@ -15,9 +15,9 @@ function keira_decide_attack_sprite(_nextState){
 			attackSprite = (useFront) ? sKeiraPunch0Front : sKeiraPunch0Back;
 			attackSpeed = 0.65;
 			
-			damageCreateXoffset	= 12;
+			damageCreateXoffset	= 0;
 			damageCreateYoffset	= -32;
-			damageCreateWidth	= 28;
+			damageCreateWidth	= 45;
 			damageCreateHeight	= 15;
 			damageKnockbackMulti = 4;
 			damageKnockbackAddHSpeed = 0;
@@ -61,6 +61,29 @@ function keira_decide_attack_sprite(_nextState){
 		
 			break;
 		
+		case state.combat_air_up:
+			
+			attackSprite = sKeiraUppercut;
+			attackSpeed = 0.4;
+			
+			damageCreateXoffset	= 5;
+			damageCreateYoffset	= -80;
+			damageCreateWidth	= 40;
+			damageCreateHeight	= 64;
+			damageKnockbackMulti = 2;
+			damageKnockbackAddHSpeed = 0;
+			damageKnockbackAddVSpeed = -7;
+			
+			adjustDirectionFacingPreDamage = false;
+			forceHalfGravity = true;
+			
+			//Stay In Air Longer
+			if (vSpeed > 0) {
+				vSpeed /= 2;	
+			}
+			
+			break;
+		
 		//case state.combat_down:
 			
 		//	attackSprite = sKeiraKickHeavy;
@@ -75,8 +98,6 @@ function keira_decide_attack_sprite(_nextState){
 		case state.combat_air_horizontal:
 			break;
 		
-		case state.combat_air_up:
-			break;
 		
 		case state.combat_air_down:
 			break;

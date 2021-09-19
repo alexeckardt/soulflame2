@@ -9,6 +9,7 @@ var vh = camera_get_view_height(vc);
 
 game_width = vw;
 game_height = vh;
+game_aspect = game_width / game_height;
 
 //Resize The Application Surface
 surface_resize(application_surface, game_width, game_height);
@@ -26,5 +27,8 @@ targetYoffset = -16;
 lockX = x;
 lockY = y;
 panCameraToLock = false;
+
+fullscreen = true;
+scale = 4;
 
 trackingSpeed = 0.25;
