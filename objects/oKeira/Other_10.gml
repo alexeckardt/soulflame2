@@ -130,6 +130,8 @@ switch (STATE) {
 			if (damageObj.hasHitEnemyAllowUpdate) {
 				damageObj.hasHitEnemyAllowUpdate = false;
 				slideSpeed = lerp(slideSpeed, 0, 0.5);
+				
+				slideExitSpeed += 0.2;
 	
 			}	
 		
@@ -139,7 +141,7 @@ switch (STATE) {
 		slideSpeed = lerp(slideSpeed, 0, slideSpeedReduction);
 	
 		//Set State To Recovery State
-		if (slideSpeed < 0.6) {
+		if (slideSpeed < slideExitSpeed) {
 			STATE = state.combat_slide_recover;
 			damageObj.allowLifeDecay = true;
 			damageObj.life = -1;

@@ -92,11 +92,13 @@ tiltTime = room_speed/2
 adjustDirectionFacingPreDamage = true;
 allowControlOverIndex = 0;
 bouncingOffEnemy = false;
-bounceJumpCoefficient = 0.8;
+bounceJumpCoefficient = 0.9;
 
 //Sliding
 slideSpeed = minRunSpeed*1.8;
 slideSpeedReduction = 0.06;
+slideExitSpeedBase = 0.6;
+slideExitSpeed = slideExitSpeedBase;
 slideMaxSpeed = slideSpeed;
 slidingInDirection = 0;
 slideActivateSprite = sKeiraSlideActivate;

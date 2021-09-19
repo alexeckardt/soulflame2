@@ -72,6 +72,7 @@ function keira_decide_attack_sprite(_nextState){
 			adjustDirectionFacingPreDamage = false;
 			slidingInDirection = directionFacing;
 			slideSpeed = slideMaxSpeed;
+			slideExitSpeed = slideExitSpeedBase;
 			
 			damageCreateXoffset	= -25;
 			damageCreateYoffset	= -20;
@@ -164,21 +165,21 @@ function keira_decide_attack_sprite(_nextState){
 			
 			var w = 30;
 			
-			damageCreateXoffset	= -w/2;
-			damageCreateYoffset	= -16;
-			damageCreateWidth	= w;
-			damageCreateHeight	= 45;
-			damageKnockbackMulti = 4;
+			damageCreateXoffset	= -5;
+			damageCreateYoffset	= -40;
+			damageCreateWidth	= 74;
+			damageCreateHeight	= 30;
+			damageKnockbackMulti = 8;
 			damageKnockbackAddHSpeed = 0;
-			damageKnockbackAddVSpeed = +1;
+			damageKnockbackAddVSpeed = 0;
 			
 			adjustDirectionFacingPreDamage = true;
-			allowControlOverIndex = 1;
+			allowControlOverIndex = -1;
 		
 			//Stay In Air Longer
 			forceHalfGravity = true;
-			if (vSpeed > 0) {
-				vSpeed /= 2;}
+			vSpeed += 1.5;
+			
 				
 			break;
 
