@@ -51,9 +51,9 @@ function keira_decide_attack_sprite(_nextState){
 			attackSprite = sKeiraUppercut;
 			attackSpeed = 0.4;
 			
-			damageCreateXoffset	= 5;
+			damageCreateXoffset	= -10;
 			damageCreateYoffset	= -80;
-			damageCreateWidth	= 40;
+			damageCreateWidth	= 50;
 			damageCreateHeight	= 64;
 			damageKnockbackMulti = 1.5;
 			damageKnockbackAddHSpeed = 0;
@@ -116,9 +116,9 @@ function keira_decide_attack_sprite(_nextState){
 			attackSprite = sKeiraUppercut;
 			attackSpeed = 0.4;
 			
-			damageCreateXoffset	= -30;
+			damageCreateXoffset	= -18;
 			damageCreateYoffset	= -80;
-			damageCreateWidth	= 60;
+			damageCreateWidth	= 65;
 			damageCreateHeight	= 64;
 			damageKnockbackMulti = 2;
 			damageKnockbackAddHSpeed = 0;

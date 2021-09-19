@@ -13,10 +13,14 @@ function enemy_take_damage() {
 		var damageCreator = damageingObject.creator;
 	
 		//Send Info Back To Damage Object
-		damageingObject.enemyHitCount++;
-		ds_list_add(damageingObject.enemiesHit, id);
-		damageingObject.hasHitEnemy = true;
-		damageingObject.hasHitEnemyAllowUpdate = true;
+		if (damageingObject.life > 0) {
+			
+			//Not If Destroyed 
+			damageingObject.enemyHitCount++;
+			ds_list_add(damageingObject.enemiesHit, id);
+			damageingObject.hasHitEnemy = true;
+			damageingObject.hasHitEnemyAllowUpdate = true;
+		}
 	
 		//Take Damage
 			hp -= 0;
