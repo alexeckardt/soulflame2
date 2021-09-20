@@ -22,6 +22,7 @@ smooth = true;
 target = instance_nearest(x, y, oKeira);
 targetXoffset = 0;
 targetYoffset = -16;
+roomEdgeBuffer = 8;
 
 //Locked Camera
 lockX = x;

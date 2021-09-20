@@ -12,6 +12,9 @@ for (var i = 0; i < s; i++) {
 	var layername = layer_get_name(layerId);
 	var mutliplier = (string_last_pos("Z", layername) == 0) ? -1 : 1; //if string ends with "Z", it is a negative mutliplier
 	
+	var doX = string_last_pos("X", layername) == 0;
+	var doY = string_last_pos("Y", layername) == 0;
+	
 	//If Name has ParalaxLayer in it
 	if (string_pos("Paralax", layername)) {
 		
@@ -25,7 +28,7 @@ for (var i = 0; i < s; i++) {
 		
 			//Add
 			var elementID = layerElements[j];
-			ds_list_add(paralaxSprites, [elementID, paralaxMultiplier, layer_sprite_get_x(elementID), layer_sprite_get_y(elementID)]);
+			ds_list_add(paralaxSprites, [elementID, paralaxMultiplier*doX, paralaxMultiplier*doY, layer_sprite_get_x(elementID), layer_sprite_get_y(elementID)]);
 	
 		}
 	}

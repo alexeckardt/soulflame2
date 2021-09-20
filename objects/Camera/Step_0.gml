@@ -17,6 +17,9 @@ speed = min(speed, 2.5);
 if (keyboard_check(vk_shift)) { x += 0.1; y += 0.05; }
 */
 
+var halfCamW = game_width div 2;
+var halfCamH = game_height div 2;
+
 //Fullscreen
 if (keyboard_check_pressed(vk_f11)) {
 	fullscreen = !fullscreen;
@@ -28,18 +31,26 @@ if (keyboard_check_pressed(vk_f11)) {
 
 
 //Goal
+var goalX = x;
+var goalY = y;
 if (instance_exists(target)) {	
 	if (target != noone) {
 		
-		x = lerp(x, target.x+targetXoffset, trackingSpeed);
-		y = lerp(y, target.y+targetYoffset, trackingSpeed);
+		goalX = lerp(goalX, target.x+targetXoffset, trackingSpeed);
+		goalY = lerp(goalY, target.y+targetYoffset, trackingSpeed);
 		
 	} else {
 
 		var bS = 0.1;
 		var lerpP = bS + (1-bS)*(!panCameraToLock)
-		x = lerp(x, lockX, lerpP);
-		y = lerp(y, lockY, lerpP);
+		goalX = lerp(goalX, lockX, lerpP);
+		goalY = lerp(goalY, lockY, lerpP);
 			
 	}
 }
+
+goalX = clamp(goalX, roomEdgeBuffer+halfCamW, room_width-roomEdgeBuffer-halfCamW);
+goalY = clamp(goalY, roomEdgeBuffer+halfCamH, room_height-roomEdgeBuffer-halfCamH);
+
+x = goalX;
+y = goalY;
