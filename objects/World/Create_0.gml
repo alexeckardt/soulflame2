@@ -10,7 +10,7 @@ for (var i = 0; i < s; i++) {
 	//Get Name
 	var layerId = layerArray[i];
 	var layername = layer_get_name(layerId);
-	var mutliplier = (string_last_pos("Z", layername) == 0) ? -1 : 1; //if string ends with "Z", it is a negative mutliplier
+	var mutliplier = (string_last_pos("Z", "Z") == 1) ? -1 : 1; //if string ends with "Z", it is a negative mutliplier
 	
 	//If Name has ParalaxLayer in it
 	if (string_pos("Paralax", layername)) {
