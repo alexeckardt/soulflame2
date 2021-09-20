@@ -74,6 +74,7 @@
     {"id":{"name":"oSpinningSquare","path":"objects/oSpinningSquare/oSpinningSquare.yy",},"order":2,},
     {"id":{"name":"Game","path":"objects/Game/Game.yy",},"order":2,},
     {"id":{"name":"oHitbox","path":"objects/oHitbox/oHitbox.yy",},"order":4,},
+    {"id":{"name":"keira_attacking_sprite_setup","path":"scripts/keira_attacking_sprite_setup/keira_attacking_sprite_setup.yy",},"order":11,},
     {"id":{"name":"sForestBackdropTreeOak","path":"sprites/sForestBackdropTreeOak/sForestBackdropTreeOak.yy",},"order":0,},
     {"id":{"name":"sForestMidgroundLog0","path":"sprites/sForestMidgroundLog0/sForestMidgroundLog0.yy",},"order":2,},
     {"id":{"name":"sForestForegroundGrassStrip0","path":"sprites/sForestForegroundGrassStrip0/sForestForegroundGrassStrip0.yy",},"order":6,},
