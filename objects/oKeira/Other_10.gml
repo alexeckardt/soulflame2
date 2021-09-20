@@ -60,18 +60,7 @@ switch (STATE) {
 			if (!createdDamage) {
 				createdDamage = true;
 				
-				var temp_damageVal = 10;
-				var dxx = x + damageCreateXoffset*directionFacing;
-				var dyy = y + damageCreateYoffset;
-				
-				damageObj = damage_create(-1, temp_damageVal, dxx, dyy);
-				damageObj.image_xscale = damageCreateWidth * sign(directionFacing+0.001);
-				damageObj.image_yscale = damageCreateHeight;
-				
-				//Knockback Comes From Center Of Keira's Mass
-				damageObj.knockbackAmount = damageKnockbackMulti;
-				damageObj.knockbackFromX = x;
-				damageObj.knockbackFromY = y - 4;
+				keira_geneirc_damage_create();
 				
 				//Add Vector
 				damageObj.addToVSpeed = damageKnockbackAddVSpeed;
@@ -106,21 +95,8 @@ switch (STATE) {
 		if (!createdDamage) {
 			createdDamage = true;
 				
-			var temp_damageVal = 10;
-			var dxx = x + damageCreateXoffset*directionFacing;
-			var dyy = y + damageCreateYoffset;
-				
-			damageObj = damage_create(-1, temp_damageVal, dxx, dyy);
-			damageObj.image_xscale = damageCreateWidth * sign(directionFacing+0.001);
-			damageObj.image_yscale = damageCreateHeight;
-				
-			//Knockback Comes From Center Of Keira's Mass
-			damageObj.knockbackAmount = damageKnockbackMulti;
-			damageObj.knockbackFromX = x;
-			damageObj.knockbackFromY = y - 4;
+			keira_geneirc_damage_create();
 			
-			damageObj.addToHSpeed = damageKnockbackAddHSpeed;
-			damageObj.addToVSpeed = damageKnockbackAddVSpeed;
 			damageObj.allowLifeDecay = false;
 			damageObj.followCreator = true;
 		
@@ -180,24 +156,8 @@ switch (STATE) {
 			if (!createdDamage) {
 				createdDamage = true;
 				
-				var temp_damageVal = 10;
-				var dxx = x + damageCreateXoffset*directionFacing;
-				var dyy = y + damageCreateYoffset;
+				keira_geneirc_damage_create();
 				
-				damageObj = damage_create(-1, temp_damageVal, dxx, dyy);
-				damageObj.image_xscale = damageCreateWidth * sign(directionFacing+0.001);
-				damageObj.image_yscale = damageCreateHeight;
-				
-				//Knockback Comes From Center Of Keira's Mass
-				damageObj.knockbackAmount = damageKnockbackMulti;
-				damageObj.knockbackFromX = x;
-				damageObj.knockbackFromY = y - 4;
-				
-				//Add Vector
-				damageObj.addToVSpeed = damageKnockbackAddVSpeed;
-				if (damageKnockbackAddHspeedRelative) {
-					damageObj.addToHSpeed = damageKnockbackAddHSpeed*directionFacing;} else {
-					damageObj.addToHSpeed = damageKnockbackAddHSpeed;}
 			} else {
 				
 				//Check If Damage Connected, If So, Jump and Transition to Base State

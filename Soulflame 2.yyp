@@ -63,6 +63,7 @@
     {"id":{"name":"enum_essence","path":"scripts/enum_essence/enum_essence.yy",},"order":3,},
     {"id":{"name":"Controller","path":"objects/Controller/Controller.yy",},"order":1,},
     {"id":{"name":"damage_check_if_enemy_hit","path":"scripts/damage_check_if_enemy_hit/damage_check_if_enemy_hit.yy",},"order":2,},
+    {"id":{"name":"keira_geneirc_damage_create","path":"scripts/keira_geneirc_damage_create/keira_geneirc_damage_create.yy",},"order":12,},
     {"id":{"name":"sDeepForestBlackoutGrassPatch0","path":"sprites/sDeepForestBlackoutGrassPatch0/sDeepForestBlackoutGrassPatch0.yy",},"order":11,},
     {"id":{"name":"Room13","path":"rooms/Room13/Room13.yy",},"order":2,},
     {"id":{"name":"sBanditIdle","path":"sprites/sBanditIdle/sBanditIdle.yy",},"order":8,},

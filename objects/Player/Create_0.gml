@@ -3,6 +3,15 @@
 //Weapon
 weaponUsing = -1;
 
+	//Base Damages
+	basePunchDamage = 1;
+	baseSwordDamage = 1.8;
+	baseBowDamage	= 0.5
+		baseArrowDamage = 1.6;
+	baseAnchorDamage = 3;
+	baseScytheDamage = 1.4;
+
+
 //Essence Tokens
 essenceTokensCanHold = 10;
 essenceTokens = ds_list_create();
