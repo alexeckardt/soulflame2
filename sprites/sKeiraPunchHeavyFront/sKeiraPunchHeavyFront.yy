@@ -93,8 +93,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "Keira",
+    "path": "folders/Sprites/Keira.yy",
   },
   "resourceVersion": "1.0",
   "name": "sKeiraPunchHeavyFront",
