@@ -355,7 +355,12 @@ if (Controller.combatAttackPressed) {
 			
 		} else
 		if (downAttack) {
-			nextAttack = state.combat_air_down;
+			
+			if (running && place_meeting(x, y+vSpeed+16, Solid)) {
+				nextAttack = state.combat_slide;
+			} else {
+				nextAttack = state.combat_air_down;
+			}
 			
 		} else 
 		if (doHTilt) {
