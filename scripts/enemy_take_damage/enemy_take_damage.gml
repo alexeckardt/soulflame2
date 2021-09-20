@@ -22,9 +22,15 @@ function enemy_take_damage() {
 			damageingObject.hasHitEnemyAllowUpdate = true;
 		}
 	
+		//Grab Info
+		var baseDamage = damageingObject.damage;
+	
 		//Take Damage
-			hp -= 0;
+			hp -= baseDamage;
 		
+		//Release Essence
+			var manaLost = essenceDropPerDamage * baseDamage;
+			essence_increment(alignment, manaLost);
 		
 		//Knockback
 			var knockbackStrength = damageingObject.knockbackAmount;

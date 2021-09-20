@@ -7,6 +7,19 @@ function keira_decide_attack_sprite(_nextState){
 
 	//switch (keira.weaponUsing) {
 	
+		keira_decide_attack_vars_no_weapon();
+
+	//}
+	
+	//Pre Fill Based On Sprite
+		//Control Sprite
+		allowControlOverIndex = (allowControlOverIndex == -1)
+									? sprite_get_number(attackSprite)
+									: allowControlOverIndex;
+}
+
+function keira_decide_attack_vars_no_weapon() {
+	
 	switch (_nextState) {
 		
 		default:
@@ -185,14 +198,5 @@ function keira_decide_attack_sprite(_nextState){
 
 	
 	}
-
-	//Pre Fill Based On Sprite
-		//Control Sprite
-		allowControlOverIndex = (allowControlOverIndex == -1)
-									? sprite_get_number(attackSprite)
-									: allowControlOverIndex;
-
-
-
-	//}
+	
 }

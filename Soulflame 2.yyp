@@ -44,6 +44,7 @@
     {"id":{"name":"sKeiraPunch0Front","path":"sprites/sKeiraPunch0Front/sKeiraPunch0Front.yy",},"order":4,},
     {"id":{"name":"Meta","path":"objects/Meta/Meta.yy",},"order":4,},
     {"id":{"name":"sEssenceTokenChaos","path":"sprites/sEssenceTokenChaos/sEssenceTokenChaos.yy",},"order":3,},
+    {"id":{"name":"essence_increment","path":"scripts/essence_increment/essence_increment.yy",},"order":10,},
     {"id":{"name":"oMeeleBandit","path":"objects/oMeeleBandit/oMeeleBandit.yy",},"order":0,},
     {"id":{"name":"damage_create","path":"scripts/damage_create/damage_create.yy",},"order":7,},
     {"id":{"name":"enum_damage_type","path":"scripts/enum_damage_type/enum_damage_type.yy",},"order":2,},

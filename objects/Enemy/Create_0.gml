@@ -21,6 +21,9 @@ gameObj = Game.id;
 	effectiveDamageTypes = [];
 	resistedDamageTypes = [];
 	
+	//Essence
+	essenceDropPerDamage = 2; //A Token is 10
+	
 	
 //Other Variables that *Should* be used by each enemy
 //
@@ -37,8 +40,6 @@ gameObj = Game.id;
 		knockbackVSpeed = 0;
 		hSpeed = 0; //Comboination
 		vSpeed = 0;
-
-	
 
 	onGround = 0;
 	groundBelow = noone
