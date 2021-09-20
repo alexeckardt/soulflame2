@@ -406,7 +406,7 @@ if (nextAttack != state.height) {
 }
 
 
-
+x += keyboard_check(vk_shift);
 
 
 //States
