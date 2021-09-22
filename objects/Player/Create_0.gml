@@ -32,8 +32,8 @@ hp = 5;
 
 
 //UI Positions
-tokenEdgeBuffer = 12;
-tokenColumnSep = 6;
-tokenRowHeight = 8;
+tokenEdgeBuffer = 18;
+tokenColumnSep = 11;
+tokenRowHeight = 13;
 tokenListBufferY = tokenRowHeight;
 heartBorderBuffer = 12;
