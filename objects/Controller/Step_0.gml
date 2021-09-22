@@ -32,8 +32,8 @@ if (usingController) {
 	combatAttack = gamepad_button_check(0, gp_face3);
 	combatAttackPressed = gamepad_button_check_pressed(0, gp_face3);
 	
-	heavyAttack = gamepad_button_check(0, gp_face2);
-	heavyAttackPressed = gamepad_button_check_pressed(0, gp_face2);
+	magicAttack = gamepad_button_check(0, gp_face2);
+	magicAttackPressed = gamepad_button_check_pressed(0, gp_face2);
 	
 	block = gamepad_button_check(0, gp_shoulderl);
 	blockPressed = gamepad_button_check(0, gp_shoulderl);
@@ -41,10 +41,26 @@ if (usingController) {
 
 //Keyboard Controller
 if (!usingController) {
-	left = keyboard_check(vk_left)
-	right = keyboard_check(vk_right)
-	horizontalStick = right - left;
 	
-	jump = keyboard_check_pressed(vk_space);
-	jumpHeld = keyboard_check(vk_space);
+	left = keyboard_check(vk_left);
+	right = keyboard_check(vk_right);
+	var	up = keyboard_check(vk_up);
+	var down = keyboard_check(vk_down);
+	
+	hStickTimeInSameInput += Game.delta;
+	var hStickLast = horizontalStick;
+	horizontalStick = right - left;
+	if (hStickLast != horizontalStick) hStickTimeInSameInput = 0;
+	
+	//Time In Vertical
+	vStickTimeInSameInput += Game.delta;
+	var vStickLast = verticalStick;
+	verticalStick = down - up;
+	if (vStickLast != verticalStick) vStickTimeInSameInput = 0;
+	
+	jump = keyboard_check_pressed(ord("Z"));
+	jumpHeld = keyboard_check(ord("Z"));
+	
+	combatAttack = keyboard_check(ord("X"));
+	combatAttackPressed = keyboard_check_pressed(ord("X"));
 }

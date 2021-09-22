@@ -27,8 +27,11 @@ display_set_gui_size(guiW, guiH)
 		
 			//Draw Token
 			var tokenInfo = essenceTokens[| i];
-			var spr = tokenInfo[1];
-			var ind = tokenInfo[2];
+			var alignment = tokenInfo[0];
+			var perent = tokenInfo[1];
+	
+			var spr = essence_token_get_sprite(alignment);
+			var ind = (perent / 100) * (sprite_get_number(spr)-1);
 	
 			var c = c_white;
 			draw_sprite_ext(spr, ind, tokenxx, tokenyy, 1, 1, 0, c, 1);

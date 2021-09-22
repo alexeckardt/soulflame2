@@ -24,7 +24,7 @@ function essence_increment(_alignment, amount) {
 	var essenceToTokenAmount = Player.essenceForToken;
 	var essenceTokenMaxCount = Player.essenceTokensCanHold;
 	
-	
+	/*
 	//
 	//Increment
 	currentValue += amount;
@@ -37,10 +37,9 @@ function essence_increment(_alignment, amount) {
 		if (Player.essenceTokensHolding < essenceTokenMaxCount) {
 			//Must be dynamic, otherwise doesn't update
 			
-			
 			//Reduce Amount
 			currentValue -= essenceTokenMaxCount;
-			essence_token_add(_alignment)
+			essence_token_add_percent(_alignment, )
 			
 		//Exit Loop
 		} else {
@@ -50,5 +49,5 @@ function essence_increment(_alignment, amount) {
 	
 	
 	//Update Real Variaible
-	variable_instance_set(pId, essenceVarName, currentValue);
+	variable_instance_set(pId, essenceVarName, currentValue);*/
 }

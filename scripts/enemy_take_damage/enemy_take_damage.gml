@@ -30,7 +30,9 @@ function enemy_take_damage() {
 		
 		//Release Essence
 			var manaLost = essenceDropPerDamage * baseDamage;
-			essence_increment(alignment, manaLost);
+			var chooseAlignment = sign(alignment + choose(0, 0, -1, 1));		
+			essence_token_add_percent(chooseAlignment, manaLost)
+			//essence_increment(chooseAlignment, manaLost);
 		
 		//Knockback
 			var knockbackStrength = damageingObject.knockbackAmount;

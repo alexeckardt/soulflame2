@@ -22,7 +22,7 @@ gameObj = Game.id;
 	resistedDamageTypes = [];
 	
 	//Essence
-	essenceDropPerDamage = 2; //A Token is 10
+	essenceDropPerDamage = 6; //A Full Token is 100
 	
 	
 //Other Variables that *Should* be used by each enemy
