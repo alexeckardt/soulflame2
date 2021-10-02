@@ -12,7 +12,7 @@ switch (STATE) {
 			
 			displayReadyPosForTime = 0;
 			sprite_switch_to(sKeiraRun);
-			image_speed = 0.4;
+			index_speed = 0.4;
 			
 		} else {
 			
@@ -20,7 +20,7 @@ switch (STATE) {
 			var idleSpr = (displayReadyPosForTime > 0) ? readySprite : idleSprite;
 			
 			sprite_switch_to(idleSpr);
-			image_speed = 0.2;
+			index_speed = 0.2;
 			
 		}
 	
@@ -43,7 +43,7 @@ switch (STATE) {
 		
 		//Set Sprite
 		sprite_switch_to(attackSprite);
-		image_speed = attackSpeed;
+		index_speed = attackSpeed;
 		displayReadyPosForTime = room_speed;
 		
 		//Update Direction Facing
@@ -81,12 +81,12 @@ switch (STATE) {
 	case state.combat_slide:
 	
 		sprite_switch_to(attackSprite);
-		image_speed = attackSpeed;
+		index_speed = attackSpeed;
 		inControl = false;
 		
 		//Stay In Loop
 		if (attackSprite = slideActivateSprite) {
-			if (image_index + image_speed >= image_number - image_speed) {
+			if (image_index + index_speed >= image_number - index_speed) {
 				attackSprite = slideLoopSprite;
 			}
 		}
@@ -128,7 +128,7 @@ switch (STATE) {
 	//Recovery Animation States
 	case state.combat_slide_recover:
 		sprite_switch_to(slideRecoverSprite);
-		image_speed = attackSpeed;
+		index_speed = attackSpeed;
 		inControl = false;
 		
 		resetStateOnAnimationFinish = true;
@@ -139,7 +139,7 @@ switch (STATE) {
 		
 		//Set Sprite
 		sprite_switch_to(attackSprite);
-		image_speed = attackSpeed;
+		index_speed = attackSpeed;
 		displayReadyPosForTime = room_speed;
 		
 		//Update Direction Facing
@@ -193,11 +193,13 @@ switch (STATE) {
 }	
 
 //Animation Complete Events
-if (image_index + image_speed >= image_number - image_speed) {
+if (image_index + index_speed >= image_number - index_speed) {
 	
 	if (resetStateOnAnimationFinish) {
 		STATE = state.base;
 		forceHalfGravity = false;
 		inControl = true;
 	}
-}	
+}
+
+image_index += index_speed*time;

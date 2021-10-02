@@ -111,6 +111,9 @@ allowCombatAirUp = true;
 useFront = true;
 
 //Visuals
+image_speed = 0;	//Always 0 as delta_time
+index_speed = 0; //Must be used for use with delta_time
+
 idleSprite = sKeiraIdle;
 readySprite = sKeiraIdleReady;
 attackSprite = sKeiraPunch0Front;

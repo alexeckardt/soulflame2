@@ -74,3 +74,5 @@ gameObj = Game.id;
 		blend = c_white;
 		alpha = 1;
 		
+		image_speed = 0;
+		index_speed = 0;
