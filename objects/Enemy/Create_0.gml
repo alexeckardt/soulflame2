@@ -1,6 +1,7 @@
 /// @desc
 
 gameObj = Game.id;
+mask_index = sprite_index;
 
 //Attributes
 //
@@ -76,3 +77,20 @@ gameObj = Game.id;
 		
 		image_speed = 0;
 		index_speed = 0;
+		
+	//Damage
+	createdDamage = false;
+	damageObj = noone;
+	damageKnockbackAddVSpeed = -2;
+	damageKnockbackAddHSpeed = 3;
+	damageKnockbackAddHspeedRelative = true;
+	
+	//Attacking
+	attackSprite = sprite_index;
+	attackSpeed = 0.3; //Player is approx 0.4;
+	adjustDirectionFacingPreDamage = false; //Should Aim Assist 
+	recoveryTime = room_speed/2;
+	recoveryTimeLeft = 0;
+	
+	//Recovery
+	recoveryAnimationFinishCancels = true;

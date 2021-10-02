@@ -100,13 +100,18 @@ generic_collide_solid();
 		
 			//HspdGoal
 			hspdGoal = toTargetDir*runSpeed;
+			directionFacing = sign(hspdGoal);
 		
 		} else {
 			
 			//Reached Player for Attack
 			hspdGoal = 0;
+			createdDamage = false;
+			
+			//State Setup
 			STATE = state.combat_htilt;
-		
+			attackSprite = sKeiraPunchHeavyFront;
+			
 		}
 	
 	}
@@ -118,3 +123,6 @@ generic_collide_solid();
 	
 	}
 	
+	
+//Visuals Call
+event_user(0);

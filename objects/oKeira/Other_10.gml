@@ -193,13 +193,13 @@ switch (STATE) {
 }	
 
 //Animation Complete Events
-if (image_index + index_speed >= image_number - index_speed) {
-	
-	if (resetStateOnAnimationFinish) {
-		STATE = state.base;
-		forceHalfGravity = false;
-		inControl = true;
-	}
-}
+entity_state_reset_on_animation_finish(resetStateOnAnimationFinish);
 
-image_index += index_speed*time;
+//Add at Bottom of each display thing
+image_index += index_speed*time/2;
+
+//
+//time/2 because the sprites internal image_speed is 30
+//while the goal game speed is 60 (thus half speed)
+//
+				

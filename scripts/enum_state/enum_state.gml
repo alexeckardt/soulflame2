@@ -42,5 +42,7 @@ enum state {
 	
 	blocking, // Hold, Blocks Incoming Attacks if correct type vs weapon
 	
+	combat_recovery, //For Heavy Sprites + Enemies; Generic State
+	
 	height, //states count, used for idle in enemies
 }

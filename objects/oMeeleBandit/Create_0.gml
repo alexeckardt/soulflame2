@@ -1,5 +1,7 @@
 /// @desc
 
+mask_index = sprite_index;
+
 //Get Universal Variables
 event_inherited();
 
@@ -25,6 +27,8 @@ hspdGoal = 0;
 
 //Attack Variaibles
 attackDistanceGoal = 48;
+recoveryTime = room_speed/2;
+recoveryAnimationFinishCancels = false;
 
 //Visuals
 blend = c_black; //(for testing so i dont need an anim)

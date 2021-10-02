@@ -8,6 +8,7 @@ function keira_geneirc_damage_create() {
 	var dxx = x + damageCreateXoffset*directionFacing;
 	var dyy = y + damageCreateYoffset;
 				
+	//Create The Damage Object
 	damageObj = damage_create(damageCreateDamageType, damageCreateBaseDamage, dxx, dyy);
 	damageObj.image_xscale = damageCreateWidth * sign(directionFacing+0.001);
 	damageObj.image_yscale = damageCreateHeight;
