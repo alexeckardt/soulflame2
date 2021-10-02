@@ -69,6 +69,7 @@
     {"id":{"name":"sBanditIdle","path":"sprites/sBanditIdle/sBanditIdle.yy",},"order":8,},
     {"id":{"name":"Camera","path":"objects/Camera/Camera.yy",},"order":0,},
     {"id":{"name":"sFireflyForestDirtTiles","path":"sprites/sFireflyForestDirtTiles/sFireflyForestDirtTiles.yy",},"order":1,},
+    {"id":{"name":"oEmptyEnemy","path":"objects/oEmptyEnemy/oEmptyEnemy.yy",},"order":1,},
     {"id":{"name":"enum_state","path":"scripts/enum_state/enum_state.yy",},"order":0,},
     {"id":{"name":"tileForestGrass","path":"tilesets/tileForestGrass/tileForestGrass.yy",},"order":0,},
     {"id":{"name":"sKeiraRun","path":"sprites/sKeiraRun/sKeiraRun.yy",},"order":6,},

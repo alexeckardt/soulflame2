@@ -42,5 +42,5 @@ enum state {
 	
 	blocking, // Hold, Blocks Incoming Attacks if correct type vs weapon
 	
-	height
+	height, //states count, used for idle in enemies
 }

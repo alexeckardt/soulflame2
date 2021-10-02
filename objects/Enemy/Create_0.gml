@@ -52,3 +52,25 @@ gameObj = Game.id;
 
 	//Sprites
 	updatedSprites = false; //Updates any sprites on alginment switch or creation
+	
+	//Targetting
+		target = oKeira;
+		seesTarget = false;
+		sightRange = 320; //20 tiles
+		lastSawTargetX = 0;
+		lastSawTargetY = 0;
+		timeToNoticeTarget = room_speed;
+		timeLeftBeforeNoticeTarget = 0;
+		
+	//Visuals
+		squishX = 1;
+		squishY = 1;
+		sqiushElasticity = 0.2;
+		
+		directionFacing = choose(1, -1);
+		directionFacingSmooth = directionFacing; //For Animations and such
+		turnSpeed = 0.2; //rate of change of above
+		
+		blend = c_white;
+		alpha = 1;
+		

@@ -13,18 +13,5 @@ enemy_hitbox_add(x, y-43, 20, 20, false);
 
 //Self Variables
 airFrictionValue = 0.005;
-runSpeed = 2.2;
 
 //Sprites
-
-//State
-STATE = state.height;
-
-//Movement
-hspdGoal = 0;
-
-//Attack Variaibles
-attackDistanceGoal = 48;
-
-//Visuals
-blend = c_black; //(for testing so i dont need an anim)
