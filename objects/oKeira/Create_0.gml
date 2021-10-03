@@ -116,4 +116,7 @@ index_speed = 0; //Must be used for use with delta_time
 
 idleSprite = sKeiraIdle;
 readySprite = sKeiraIdleReady;
+
 attackSprite = sKeiraPunch0Front;
+weaponSprite = -1;
+displayWeapon = false;

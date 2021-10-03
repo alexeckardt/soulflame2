@@ -6,7 +6,7 @@
     "path": "folders/Enums.yy",
   },
   "resourceVersion": "1.0",
-  "name": "enum_weapons",
+  "name": "enum_weapon",
   "tags": [],
   "resourceType": "GMScript",
 }

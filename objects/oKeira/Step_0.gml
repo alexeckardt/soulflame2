@@ -55,11 +55,12 @@ var hSpeedGoal = mx * minRunSpeed * hspdGoalsMultipliers * inControl;
 var slidingHspdGoal = slidingInDirection * slideSpeed * hspdGoalsMultipliers;
 
 
-//CHanges
+//Auto Changes in Hespeed
 if (STATE = state.combat_slide) { 
 	hSpeedGoal = slidingHspdGoal; 
 }
 
+//Friction
 var originalHSpeedGoal = hSpeedGoal;
 if (inAir) {
 
@@ -80,7 +81,7 @@ if (inAir) {
 	
 	}
 
-//On Ground
+//On Ground Frinction
 } else {
 	
 	//Normal Air Friction on next jump
@@ -110,7 +111,7 @@ mask_index = mask;
 //If Particularily Long Break, Don't Shoot Out of the map
 var lagDampen = power(0.95, max(1,time));
 
-//Horizontal
+//Horizontal Movement and Collision
 var moveX = (hSpeed)*time*lagDampen
 if (place_meeting(x + moveX, y, Solid)) {
 	
@@ -131,7 +132,7 @@ if (place_meeting(x + moveX, y, Solid)) {
 }
 x += moveX;
 
-//Vertical Collide
+//Vertical Collide and Move
 timeSinceOnGround += time;
 var moveY = (vSpeed)*time*lagDampen;
 if (place_meeting(x, y+moveY, Solid)) {
@@ -195,8 +196,7 @@ if (onGround && !wasOnGround) {
 }
 
 
-
-//Climb
+//Climbing
 timeSinceClimbing += time;
 if (wallInDirection != 0) {
 
@@ -330,7 +330,6 @@ if (Controller.combatAttackPressed) {
 		if (runAttack) {
 			nextAttack = state.combat_running;
 			
-			
 		} else 
 		if (upAttack) {
 			nextAttack = state.combat_up;	
@@ -343,6 +342,13 @@ if (Controller.combatAttackPressed) {
 		if (downAttack && running) {
 			nextAttack = state.combat_slide;
 		}
+		
+		//Others
+		
+		//
+		//if (upAttack && STATE == state.combat_slide) 
+		
+		
 		
 	} else {
 		
