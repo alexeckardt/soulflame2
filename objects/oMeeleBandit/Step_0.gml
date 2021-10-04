@@ -123,6 +123,28 @@ generic_collide_solid();
 	
 	}
 	
+	//Dead
+	if (STATE == state.dead) {
+	
+		//No More Movement Control
+		hSpeedGoal = 0;
+		vSpeedGoal = 0;
+	
+		//Die
+		if (onGround) {
+			if (deadTicks > timeLayingOnGroundBeforePop) {	
+				//Kill
+				instance_destroy();
+			}
+			
+		//Reset
+		} else {
+			deadTicks = 0;	
+		}
+	
+	}
+	
+	
 	
 //Visuals Call
 event_user(0);

@@ -13,6 +13,11 @@ enemy_hitbox_add(x, y-24, 15, 30, false);
 enemy_hitbox_add(x, y-43, 20, 20, false);
 
 
+//Attributes
+hp = 5;
+
+
+
 //Self Variables
 airFrictionValue = 0.005;
 runSpeed = 2.2;
@@ -35,7 +40,7 @@ recoveryTimeLeft = 0;
 	
 //Recovery
 recoveryAnimationFinishCancels = true;
-
+timeLayingOnGroundBeforePop = room_speed/2;
 
 //Visuals
 blend = c_black; //(for testing so i dont need an anim)
