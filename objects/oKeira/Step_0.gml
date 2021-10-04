@@ -411,6 +411,25 @@ if (nextAttack != state.height) {
 	}
 }
 
+//Hurt State
+
+if (STATE == state.hurt) {
+	
+	//No Control
+	inControl = false;
+	
+	//Reset State
+	hurtTime -= time;
+	if (hurtTime< 0) {
+		STATE = state.base;	
+	}
+	
+} else {
+	//Invulnerability Time Post Damage
+	invulnerableTicks -= time;	
+}
+
+
 
 x += keyboard_check(vk_shift);
 

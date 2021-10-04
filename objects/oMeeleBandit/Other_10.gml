@@ -55,17 +55,18 @@ switch (STATE) {
 				var damageType = damage_type.impact;
 				var damageValue = 5;
 				var damageX = x + directionFacing * 16;
-				var damageY = y - 48;
-				var damageWidth = 20*sign(directionFacing+0.001);
-				var damageHeight = 32
+				var damageY = y - 55;
+				var damageWidth = 36*sign(directionFacing+0.001);
+				var damageHeight = 24;
+				var damageKnockbackAddVSpeed = -3;
+				var damageKnockbackAddHSpeed = 4;
 			
 				damageObj = damage_create_ext(damageType, damageValue, damageX, damageY, damageWidth, damageHeight);
+				damageObj.life = 5;
 	
 				//Add Vector
 				damageObj.addToVSpeed = damageKnockbackAddVSpeed;
-				if (damageKnockbackAddHspeedRelative) {
-					damageObj.addToHSpeed = damageKnockbackAddHSpeed*directionFacing;} else {
-					damageObj.addToHSpeed = damageKnockbackAddHSpeed;}
+				damageObj.addToHSpeed = damageKnockbackAddHSpeed*directionFacing;
 			}
 		
 		}

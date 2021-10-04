@@ -6,7 +6,7 @@
     "path": "folders/Entity/Enemy/Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "enemy_hitbox_add",
+  "name": "hitbox_multiple_create",
   "tags": [
     "combat",
   ],

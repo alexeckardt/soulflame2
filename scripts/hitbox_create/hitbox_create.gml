@@ -1,9 +1,10 @@
 //
 //DESC:
 //
+//Creates a Signle Hitbox.
 //
 //
-function enemy_hitbox_add(_x, _y, _width, _height, _isEllipse) {
+function hitbox_create(_x, _y, _width, _height, _isEllipse) {
 
 	//Create the Hitbox
 	var newHitbox = instance_create_depth(_x,_y, depth - 5, oHitbox);
@@ -17,10 +18,7 @@ function enemy_hitbox_add(_x, _y, _width, _height, _isEllipse) {
 	newHitbox.hitboxHeight = _height;
 	newHitbox.isEllipse = _isEllipse;
 	
-	//Add To List
-	ds_list_add(hitboxes, newHitbox);
-	
-	//Return id if wants to be special
+	//Return id of the hitbox
 	return newHitbox
 
 }

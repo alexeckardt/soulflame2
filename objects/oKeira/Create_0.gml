@@ -5,14 +5,10 @@ STATE = state.base;
 mask = sKeiraIdle;
 
 //Setup
-
-
-
-
+hitbox = hitbox_create_alt(oKeiraHitbox, x, y-24, 25, 38, false);
 
 
 //Variaibles
-
 runAcc = 0;
 traction = 0.9;
 
@@ -21,6 +17,8 @@ vSpeed = 0;
 
 hMomentum = 0;
 vMomentum = 0;
+
+weight = 1.2;
 
 //Air Friction
 onGround = true;
@@ -118,6 +116,13 @@ slideRecoverSprite = sKeiraSlideRecover;
 allowCombatAirUp = true;
 
 useFront = true;
+
+//Taking Damage
+invulnerableTicks = 0;
+hurtTicks = 0;
+hurtTime = room_speed*0.6;
+hitboxTakingDamage = noone;
+
 
 //Visuals
 image_speed = 0;	//Always 0 as delta_time

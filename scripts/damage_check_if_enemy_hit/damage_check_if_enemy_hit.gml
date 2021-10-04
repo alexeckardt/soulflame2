@@ -1,7 +1,8 @@
 //
 //DESC:
 //
-//
+//Checks to see if a damage object has hit a specific enemy, so damage doesn't
+//Continue to deal kb and damage if enemy is still touching it
 //
 function damage_check_if_enemy_hit(damageObj, enemyId) {
 

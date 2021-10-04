@@ -9,8 +9,8 @@ event_inherited();
 weight = 1
 
 //Generate Hitbox
-enemy_hitbox_add(x, y-24, 15, 30, false);
-enemy_hitbox_add(x, y-43, 20, 20, false);
+hitbox_create_for_list(hitboxes, x, y-24, 15, 30, false);
+hitbox_create_for_list(hitboxes, x, y-43, 20, 20, false);
 
 //Attributes
 hp = 5;

@@ -3,10 +3,10 @@
   "isCompatibility": false,
   "parent": {
     "name": "Scripts",
-    "path": "folders/Keira/Scripts.yy",
+    "path": "folders/Entity/Enemy/Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "keira_decide_attack_sprite",
+  "name": "hitbox_create_alt",
   "tags": [
     "combat",
   ],

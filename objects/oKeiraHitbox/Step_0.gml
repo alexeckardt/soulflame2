@@ -26,28 +26,19 @@ if (canTakeDamage) {
 			//Loop, See if one is NOT through my own creator
 			for (var i = 0; i < damageCollisionsFound; i++) {
 		
-				//Check Creator
+				//Check Creator is not mine (ie don't damage self)
 				var dmgObj = damagesMeeting[| i];
 				if (dmgObj.creator != creator.id) {
 					
 					//Check If Allowed
 					if (dmgObj.canDamageEnemies || isPlayerHitbox) {
 				
-						//Check Creator Not Already Taking Damage
-						if (creator.hitboxTakingDamage == noone) {
-								
-							//Check If Creator has already been hit by this damage
-							var hasBeenHitAlready = damage_check_if_enemy_hit(dmgObj, creator);
-							if (!hasBeenHitAlready) {
-								
-								//Take Damage
-								creator.hitboxTakingDamage = id;
-								damagingObjectId = dmgObj;
-								
-							}
-								
-						}
-					
+						//Get Damage
+						damagingObjectId = dmgObj;
+						
+						//Take Damage
+						event_user(0);
+						
 						//Should No Longer Check
 						break;
 					}

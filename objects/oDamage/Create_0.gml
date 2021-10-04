@@ -32,6 +32,10 @@ mask_index = -1;
 enemyHitCount = 0;
 enemiesHit = ds_list_create();
 hasHitEnemy = false;
-hasHitEnemyAllowUpdate = false; //Updates along with above, but can be reset by player object
+hasHitEnemyAllowUpdate = false; //Updates along with above, but is seperate.
+								//This one is to be reset by player object if needed
 								//example, if this is true, slide speed is cut, and then this
-								//is reset so if I hit another enemy, slide speed is reduced again.
+								//is reset; so if I hit another enemy, slide speed is reduced again.
+								//
+								//However, if i don't hit another enemy, Damage still reccognizes
+								//that it HAS hit something.

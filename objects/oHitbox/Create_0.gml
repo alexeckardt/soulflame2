@@ -18,3 +18,5 @@ sprW = sprite_get_width(sprite_index);
 
 damagesMeeting = ds_list_create();
 damagingObjectId = noone;
+
+isPlayerHitbox = false;

@@ -6,8 +6,10 @@ if (followCreator) {
 	y = creator.y + yoffset;
 }
 
+var decay = (allowLifeDecay || creator.STATE == state.hurt) //Update this later
+
 //Die After Time
-life -= Game.delta*allowLifeDecay;
+life -= Game.delta*decay;
 if (life < 0) {
 	instance_destroy();
 }	
