@@ -35,15 +35,11 @@ if (canTakeDamage) {
 				
 						//Check Creator Not Already Taking Damage
 						if (creator.hitboxTakingDamage == noone) {
-						
-							//Check If Creator has already been hit by this damage
-							var hasBeenHitAlready = damage_check_if_enemy_hit(dmgObj, creator);
-							if (!hasBeenHitAlready) {
-									
+								
 								//Take Damage
 								creator.hitboxTakingDamage = id;
 								damagingObjectId = dmgObj;
-							}
+								
 						}
 					
 						//Should No Longer Check
