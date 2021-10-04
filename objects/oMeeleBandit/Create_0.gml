@@ -27,8 +27,15 @@ hspdGoal = 0;
 
 //Attack Variaibles
 attackDistanceGoal = 48;
+attackSprite = sprite_index;
+attackSpeed = 0.3; //Player is approx 0.4;
+adjustDirectionFacingPreDamage = false; //Should Aim Assist 
 recoveryTime = room_speed/2;
-recoveryAnimationFinishCancels = false;
+recoveryTimeLeft = 0;
+	
+//Recovery
+recoveryAnimationFinishCancels = true;
+
 
 //Visuals
 blend = c_black; //(for testing so i dont need an anim)

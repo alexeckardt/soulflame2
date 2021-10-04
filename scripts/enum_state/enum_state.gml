@@ -8,6 +8,7 @@ enum state {
 	base,
 	climb,
 	hurt,
+	dead,
 	
 	//Change With Weapons
 	

@@ -49,6 +49,19 @@ function enemy_take_damage() {
 		//Reset
 		hitboxTakingDamage = noone;
 		invulnerableTicks = 5;
+		
+		
+		//Dead Detect
+		if (!dead) {
+			if (hp <= 0) {
+				dead = true;
+				
+				//Auto Switch (Stagger)
+				if (autoSwitchToDeadState) {
+					STATE = state.dead;	
+				}
+			}
+		}	
 	}
 
 }

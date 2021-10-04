@@ -52,7 +52,7 @@ mask_index = sprite_index;
 	healthyPercent = 0;
 
 	//Sprites
-	updatedSprites = false; //Updates any sprites on alginment switch or creation
+	updatedAlignmentSprites = false; //Updates any sprites on alginment switch or creation
 	
 	//Targetting
 		target = oKeira;
@@ -62,6 +62,11 @@ mask_index = sprite_index;
 		lastSawTargetY = 0;
 		timeToNoticeTarget = room_speed;
 		timeLeftBeforeNoticeTarget = 0;
+		
+	//Health
+		dead = false;
+		deadTicks = 0;
+		autoSwitchToDeadState = true;
 		
 	//Visuals
 		squishX = 1;
@@ -84,13 +89,3 @@ mask_index = sprite_index;
 	damageKnockbackAddVSpeed = -2;
 	damageKnockbackAddHSpeed = 3;
 	damageKnockbackAddHspeedRelative = true;
-	
-	//Attacking
-	attackSprite = sprite_index;
-	attackSpeed = 0.3; //Player is approx 0.4;
-	adjustDirectionFacingPreDamage = false; //Should Aim Assist 
-	recoveryTime = room_speed/2;
-	recoveryTimeLeft = 0;
-	
-	//Recovery
-	recoveryAnimationFinishCancels = true;

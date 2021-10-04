@@ -1,4 +1,7 @@
 /// @desc
 
+var time = Game.delta;
+
 //Lower Invulnerablity Ticks
-invulnerableTicks -= Game.delta;
+invulnerableTicks -= time;
+deadTicks += time*(dead);
