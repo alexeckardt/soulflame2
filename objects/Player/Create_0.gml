@@ -12,7 +12,6 @@ weaponUsing = weapon.none;
 	baseAnchorDamage = 3;
 	baseScytheDamage = 1.4;
 
-
 //Essence Tokens
 essenceTokensCanHold = 3;
 essenceTokens = ds_list_create();

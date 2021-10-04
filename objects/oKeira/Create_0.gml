@@ -4,6 +4,15 @@ inControl = true;
 STATE = state.base;
 mask = sKeiraIdle;
 
+//Setup
+
+
+
+
+
+
+//Variaibles
+
 runAcc = 0;
 traction = 0.9;
 

@@ -12,11 +12,8 @@ weight = 1
 enemy_hitbox_add(x, y-24, 15, 30, false);
 enemy_hitbox_add(x, y-43, 20, 20, false);
 
-
 //Attributes
 hp = 5;
-
-
 
 //Self Variables
 airFrictionValue = 0.005;
