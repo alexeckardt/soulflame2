@@ -11,7 +11,7 @@ function keira_decide_attack_sprite(_nextState){
 		default:
 			keira_decide_attack_vars_no_weapon(_nextState);break;
 			
-		case weapon.fists:
+		case weapon.fire_meele:
 			keira_decide_attack_vars_no_weapon(_nextState);break;
 
 	}

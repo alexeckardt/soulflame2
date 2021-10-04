@@ -151,6 +151,6 @@ function keira_decide_attack_vars_no_weapon(_nextState) {
 	}
 	
 	//Do The Setup
-	keira_attacking_sprite_setup(spr, spd, damage, damageType, damageObjConsistants);
+	keira_attacking_sprite_setup(spr, weaponOverlaySprite, spd, damage, damageType, damageObjConsistants);
 	
 }
