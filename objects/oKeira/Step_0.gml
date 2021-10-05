@@ -8,18 +8,18 @@ var time = Game.delta;
 if (timeSinceOnGround > -1) {
 
 	//Choose Values
-	var grav = myGrav * ((STATE == state.climb && vSpeed > 0) ? climbingGravMulti : 1);
+	var grav = myGrav * ((STATE == state.climb && controlVSpeed > 0) ? climbingGravMulti : 1);
 	var term = (STATE != state.climb) ? terminalVelocity : climbingTermVel;
 
 	//Gives Hang Time If Jump is Still Held
-	var mult = (abs(vSpeed) < halfGravityThreshold && (Controller.jumpHeld || forceHalfGravity) && allowHalfGravity) ? 0.5 : 1;
+	var mult = (abs(controlVSpeed) < halfGravityThreshold && (Controller.jumpHeld || forceHalfGravity) && allowHalfGravity) ? 0.5 : 1;
 	
 	//Add Gravity
-	vSpeed = min(vSpeed + grav*mult*time, term);
+	controlVSpeed = min(controlVSpeed + grav*mult*time, term);
 	
 	//Short Jump
-	if (!Controller.jumpHeld && vSpeed < -halfGravityThreshold && !cutVspd) {
-		vSpeed /= 1.6;	
+	if (!Controller.jumpHeld && controlVSpeed < -halfGravityThreshold && !cutVspd) {
+		controlVSpeed /= 1.6;	
 		cutVspd = true;
 	}
 }
@@ -77,8 +77,8 @@ if (inAir) {
 	} else {
 		
 		//Smoothly Change Horizontal Speed
-		hSpeed = lerp(hSpeed + hMomentum, hSpeedGoal, (airFrictionValue + holdingOppositeInAir)*airFrictionMultiplierLerp);
-	
+		controlHSpeed = lerp(controlHSpeed + hMomentum, hSpeedGoal, (airFrictionValue + holdingOppositeInAir)*airFrictionMultiplierLerp);
+		knockbackHSpeed = lerp(knockbackHSpeed, 0, airFrictionValue);
 	}
 
 //On Ground Frinction
@@ -88,7 +88,9 @@ if (inAir) {
 	airFrictionMultiplierLerp = 1;
 	
 	//Use Ground Friction
-	hSpeed = lerp(hSpeed, hSpeedGoal, slideValBase);
+	controlHSpeed = lerp(hSpeed, hSpeedGoal, slideValBase);
+	knockbackHSpeed = lerp(knockbackHSpeed, 0, slideValBase);
+	
 	allowHalfGravity = true;
 	cutVspd = false;
 	
@@ -98,7 +100,10 @@ if (inAir) {
 	
 }
 //Round Out
-hSpeed = sign(hSpeed) * floor(abs(hSpeed) * 100) / 100;
+controlHSpeed = sign(controlHSpeed) * floor(abs(controlHSpeed) * 100) / 100;
+hSpeed = controlHSpeed + round(10*knockbackHSpeed)/10;
+
+
 directionFacing = (hSpeed != 0 && inControl) ? sign(hSpeed) : directionFacing;
 
 //
@@ -133,6 +138,12 @@ if (place_meeting(x + moveX, y, Solid)) {
 x += moveX;
 
 //Vertical Collide and Move
+
+//Vertical Component Decide
+controlVSpeed += knockbackVSpeed;
+knockbackVSpeed = 0;
+vSpeed = controlVSpeed;
+
 timeSinceOnGround += time;
 var moveY = (vSpeed)*time*lagDampen;
 if (place_meeting(x, y+moveY, Solid)) {
@@ -169,6 +180,7 @@ if (place_meeting(x, y+moveY, Solid)) {
 	if (stopVspeed) {
 		moveY = 0;
 		vSpeed = 0;
+		controlVSpeed = 0;
 		allowHalfGravity = false;
 	}
 }
@@ -267,14 +279,14 @@ if (jumpTicks > 0) {
 				verticalClimb = false;
 				doubleJump = false;
 				
-				vSpeed = jumpSpeed * bounceJumpCoefficient + vMomentum; 
+				controlVSpeed = jumpSpeed * bounceJumpCoefficient + vMomentum; 
 				squishX = -squishOffset;
 				squishY = squishOffset;
 			}
 		
 			//Set Speeds
 			if (onGroundJump) {
-				vSpeed = jumpSpeed + vMomentum; 
+				controlVSpeed = jumpSpeed + vMomentum; 
 				squishX = -squishOffset;
 				squishY = squishOffset;
 			}
@@ -286,8 +298,8 @@ if (jumpTicks > 0) {
 				var spd = wallJumpSpeed;
 				var jumpingAngle = 90 + lastWallInDirection*wallJumpAngle;
 			
-				hSpeed = lengthdir_x(spd, jumpingAngle) + hMomentum;	
-				vSpeed = lengthdir_y(spd, jumpingAngle) + vMomentum; 
+				controlHSpeed = lengthdir_x(spd, jumpingAngle) + hMomentum;	
+				controlVSpeed = lengthdir_y(spd, jumpingAngle) + vMomentum; 
 			
 				squishX = -squishOffset*1.3;
 				squishY = squishOffset*1.25;
@@ -298,7 +310,7 @@ if (jumpTicks > 0) {
 		
 			if (verticalClimb) {
 			
-				vSpeed = wallJumpSpeed + vMomentum; 
+				controlVSpeed = wallJumpSpeed + vMomentum; 
 				squishX = -squishOffset;
 				squishY = squishOffset;
 		

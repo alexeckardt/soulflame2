@@ -15,6 +15,13 @@ traction = 0.9;
 hSpeed = 0;
 vSpeed = 0;
 
+controlHSpeed = 0;
+controlVSpeed = 0;
+
+knockbackHSpeed = 0;
+knockbackVSpeed = 0;
+kbFriction = 0.07;
+
 hMomentum = 0;
 vMomentum = 0;
 

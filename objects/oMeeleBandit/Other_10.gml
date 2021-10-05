@@ -58,8 +58,8 @@ switch (STATE) {
 				var damageY = y - 55;
 				var damageWidth = 36*sign(directionFacing+0.001);
 				var damageHeight = 24;
-				var damageKnockbackAddVSpeed = -3;
-				var damageKnockbackAddHSpeed = 4;
+				var damageKnockbackAddVSpeed = -4;
+				var damageKnockbackAddHSpeed = 8;
 			
 				damageObj = damage_create_ext(damageType, damageValue, damageX, damageY, damageWidth, damageHeight);
 				damageObj.life = 5;

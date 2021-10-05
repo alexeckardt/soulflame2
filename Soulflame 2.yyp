@@ -6,6 +6,7 @@
     {"id":{"name":"keira_decide_attack_vars_no_weapon","path":"scripts/keira_decide_attack_vars_no_weapon/keira_decide_attack_vars_no_weapon.yy",},"order":3,},
     {"id":{"name":"sHitboxArea","path":"sprites/sHitboxArea/sHitboxArea.yy",},"order":11,},
     {"id":{"name":"sForestBackgroundRock1","path":"sprites/sForestBackgroundRock1/sForestBackgroundRock1.yy",},"order":8,},
+    {"id":{"name":"damage_via_owner_destroy","path":"scripts/damage_via_owner_destroy/damage_via_owner_destroy.yy",},"order":5,},
     {"id":{"name":"sKeiraSlideActivate","path":"sprites/sKeiraSlideActivate/sKeiraSlideActivate.yy",},"order":7,},
     {"id":{"name":"sKeiraPunchHeavyFront","path":"sprites/sKeiraPunchHeavyFront/sKeiraPunchHeavyFront.yy",},"order":5,},
     {"id":{"name":"enemy_take_damage","path":"scripts/enemy_take_damage/enemy_take_damage.yy",},"order":1,},

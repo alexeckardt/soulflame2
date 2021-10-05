@@ -3,6 +3,7 @@
 
 var otherDamage = damagingObjectId;
 var enemyWhoHitMe = otherDamage.creator;
+var Keira = oKeira.id;
 
 //Send Info Back To Damage Object
 if (otherDamage.life > 0) {
@@ -20,22 +21,23 @@ Player.hp--;
 
 
 //Player State
-oKeira.STATE = state.hurt;
-oKeira.hurtTicks = oKeira.hurtTime;
-oKeira.invulnerableTicks = room_speed/2;
+Keira.STATE = state.hurt;
+Keira.hurtTicks = Keira.hurtTime;
+Keira.invulnerableTicks = room_speed/2;
 
 
-
+//Destroy Keira's Damages
+damage_via_owner_destroy(Keira);
 
 //Knockback Keira
 var knockbackStrength = otherDamage.knockbackAmount;
 		
 	//Vector
 	var dd = point_direction(otherDamage.knockbackFromX, otherDamage.knockbackFromY, x, y);
-	var str = (knockbackStrength) / oKeira.weight;
+	var str = (knockbackStrength) / Keira.weight;
 
 	//Add
-	oKeira.hSpeed += lengthdir_x(str, dd) + otherDamage.addToHSpeed;
-	oKeira.vSpeed += lengthdir_y(str, dd) + otherDamage.addToVSpeed;
+	Keira.knockbackHSpeed += lengthdir_x(str, dd) + otherDamage.addToHSpeed;
+	Keira.knockbackVSpeed += lengthdir_y(str, dd) + otherDamage.addToVSpeed;
 	
 	
