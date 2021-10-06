@@ -10,6 +10,9 @@ hStickTimeInSameInput = 0;
 verticalStick = 0;
 vStickTimeInSameInput = 0;
 
+stickDirection = 0;
+stickHolding = false;
+
 
 left = false;
 right = false;
@@ -25,3 +28,5 @@ heavyAttackPressed = false;
 
 block = false;
 blockPressed = false;
+
+selectingWeaponToggle = false;

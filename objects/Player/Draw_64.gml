@@ -86,3 +86,43 @@ display_set_gui_size(guiW, guiH)
 		draw_sprite(heartSprite, 0, heartxx, hpY);
 		
 	}
+	
+//Weapon Surface
+	if (weaponWheelScale > weaponWheelScaleDispalyThreshold) {
+	
+		//Draw Surface
+		surface_set_target(weaponWheelSurf);
+			var center = weaponWheelSurfaceWidth div 2;
+	
+			//Clear
+			draw_clear_alpha(0, 0.5);
+			
+			//Draw Ring
+	
+		
+			//Draw Ring Cutout
+			
+			
+			//Draw Weapons in correct slots and positions
+	
+	
+			//Draw Controller Stick Position
+			var zoneRad = weaponWheelSize;
+			var rad = weaponWheelLerpDisplayingLen;
+
+			var stickX = zoneRad * lengthdir_x(rad, weaponWheelLerpDisplayingDir);
+			var stickY = zoneRad * lengthdir_y(rad, weaponWheelLerpDisplayingDir);
+			
+			draw_circle(center+stickX, center+stickY, 10, false);
+			
+			surface_reset_target();
+		
+		
+		//Draw Surface
+		var wheelPosX = (guiW - weaponWheelSurfaceWidth*weaponWheelScale) div 2; //Match Player X in future
+		var wheelPosY = (guiH - weaponWheelSurfaceWidth*weaponWheelScale) div 2; //
+		
+		//Surf
+		draw_surface_ext(weaponWheelSurf, wheelPosX, wheelPosY, weaponWheelScale, weaponWheelScale, 0, c_white, 1)
+	
+	}

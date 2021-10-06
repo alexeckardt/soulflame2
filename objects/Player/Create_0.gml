@@ -12,6 +12,9 @@ weaponUsing = weapon.none;
 	baseAnchorDamage = 3;
 	baseScytheDamage = 1.4;
 
+weaponsUnlocked = ds_grid_create(weapon.height, 2);
+ds_list_clear(weaponsUnlocked, 0);
+
 //Essence Tokens
 essenceTokensCanHold = 3;
 essenceTokens = ds_list_create();
@@ -41,7 +44,15 @@ heartBoxAlpha = 0.5;
 selectingWeapon = false;
 weaponWheelSurf = -1;
 weaponWheelScale = 0;
+weaponHighlighted = weapon.none;
 
+weaponWheelSize = 140;
+weaponSelectionBubbleSize = 32;
+weaponWheelSurfaceWidth = weaponWheelSize + weaponSelectionBubbleSize*2;
+weaponWheelScaleDispalyThreshold = 0.05;
+
+weaponWheelLerpDisplayingDir = 0;
+weaponWheelLerpDisplayingLen = 0;
 
 
 //UI Positions

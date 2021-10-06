@@ -21,10 +21,12 @@ if (usingController) {
 		verticalStick = gamepad_axis_value(0, gp_axislv);
 		if (vStickLast != verticalStick) vStickTimeInSameInput = 0;
 	
+		stickDirection = point_direction(0, 0, horizontalStick, verticalStick);
+		stickHolding = abs(horizontalStick) > 0 || abs(verticalStick) > 0
 
 	//Left and Right
-	left = gamepad_axis_value(0, gp_axislh) < 0;
-	right = gamepad_axis_value(0, gp_axislh) > 0;
+	left = horizontalStick < 0;
+	right = horizontalStick > 0;
 	
 	jump = gamepad_button_check_pressed(0, gp_face1);
 	jumpHeld = gamepad_button_check(0, gp_face1);
@@ -37,6 +39,8 @@ if (usingController) {
 	
 	block = gamepad_button_check(0, gp_shoulderl);
 	blockPressed = gamepad_button_check(0, gp_shoulderl);
+	
+	selectingWeaponToggle = gamepad_button_check_pressed(0, gp_stickl);
 }
 
 //Keyboard Controller

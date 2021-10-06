@@ -273,6 +273,7 @@
     {"instances":[
         {"properties":[],"isDnd":false,"objectId":{"name":"oKeira","path":"objects/oKeira/oKeira.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":160.0,"y":512.0,"resourceVersion":"1.0","name":"inst_284D1167","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"oMeeleBandit","path":"objects/oMeeleBandit/oMeeleBandit.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":272.0,"y":640.0,"resourceVersion":"1.0","name":"inst_450C824C","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"oMeeleBandit","path":"objects/oMeeleBandit/oMeeleBandit.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":768.0,"y":256.0,"resourceVersion":"1.0","name":"inst_7714DF01","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":800,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":16,"gridY":16,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Instances_1","tags":[],"resourceType":"GMRInstanceLayer",},
     {"assets":[
         {"spriteId":{"name":"sBarrel","path":"sprites/sBarrel/sBarrel.yy",},"headPosition":0.0,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"animationSpeed":1.0,"colour":4294967295,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":346.0,"y":462.0,"resourceVersion":"1.0","name":"graphic_41A45A5F","tags":[],"resourceType":"GMRSpriteGraphic",},
@@ -327,6 +328,7 @@
     {"name":"inst_4730A0F1","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_44F7221C","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_52E1EB","path":"rooms/Room1/Room1.yy",},
+    {"name":"inst_7714DF01","path":"rooms/Room1/Room1.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,
