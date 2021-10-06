@@ -37,6 +37,13 @@ heartWidthOffset = 20;
 heartBoxCol = c_black;
 heartBoxAlpha = 0.5;
 
+//Weapon Selection UI
+selectingWeapon = false;
+weaponWheelSurf = -1;
+weaponWheelScale = 0;
+
+
+
 //UI Positions
 tokenEdgeBuffer = 18;
 tokenColumnSep = 11;

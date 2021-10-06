@@ -104,7 +104,7 @@ controlHSpeed = sign(controlHSpeed) * floor(abs(controlHSpeed) * 100) / 100;
 hSpeed = controlHSpeed + round(10*knockbackHSpeed)/10;
 
 
-directionFacing = (hSpeed != 0 && inControl) ? sign(hSpeed) : directionFacing;
+directionFacing = (controlHSpeed != 0 && inControl) ? sign(controlHSpeed) : directionFacing;
 
 //
 //
@@ -117,7 +117,7 @@ mask_index = mask;
 var lagDampen = power(0.95, max(1,time));
 
 //Horizontal Movement and Collision
-var moveX = (hSpeed)*time*lagDampen
+var moveX = (controlHSpeed)*time*lagDampen
 if (place_meeting(x + moveX, y, Solid)) {
 	
 	//Approach Wall until meeting
@@ -134,6 +134,7 @@ if (place_meeting(x + moveX, y, Solid)) {
 	//Reset Movement Vals
 	moveX = 0;
 	hSpeed = 0;
+	controlHSpeed = 0;
 }
 x += moveX;
 
