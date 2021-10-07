@@ -12,3 +12,5 @@ var drawX = (x);
 var drawY = (y);
 
 draw_sprite_ext(sprite_index, image_index, drawX, drawY, xsc, ysc, 0, blend, alpha);
+
+draw_text(x, y- 60, Player.weaponUsing);

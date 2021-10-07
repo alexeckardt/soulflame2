@@ -30,7 +30,7 @@ weight = 1.2;
 //Air Friction
 onGround = true;
 doAirFriction = true;
-airFrictionValue = 0.08;
+airFrictionValue = 0.05;
 airFrictionMultiplierLerp = 0;
 groundBelow = noone;
 timeSinceOnGround = 1; //-1 means on ground

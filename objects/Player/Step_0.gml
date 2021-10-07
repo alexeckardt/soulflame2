@@ -18,9 +18,23 @@
 	//
 	
 //Selecting Weapon
-	if (Controller.selectingWeaponToggle) {
-		selectingWeapon = !selectingWeapon;
-		weaponHighlighted = weapon.none;}
+	if (Controller.rightStickHolding) {
+		if (!weaponWheelJustClosed) {
+			if (!selectingWeapon) {
+				selectingWeapon = true;
+				weaponHighlighted = weapon.none;
+				resetingWeaponSelection = false;
+			}
+		}
+	} else {
+		weaponWheelJustClosed = false;
+	}
+	
+	//Reset Weapon Selection
+	if (Controller.rightStickPressed) {
+		resetingWeaponSelection = true;
+		selectingWeapon = true;
+	}
 	
 	if (selectingWeapon) {
 		
@@ -31,15 +45,17 @@
 		}
 		
 		//Input Choice
-		var cH = Controller.stickHolding;
+		var stickIsActive = Controller.rightStickHolding && !resetingWeaponSelection;
 		
 		//If Wanting To Set Weapon
-		weaponWheelLerpDisplayingLen = lerp(weaponWheelLerpDisplayingLen, point_distance(0, 0, Controller.horizontalStick, Controller.verticalStick)*0.5, 0.4);
+		weaponWheelLerpDisplayingLen = lerp(weaponWheelLerpDisplayingLen, 
+									point_distance(0, 0, Controller.rightStickHolding, Controller.rightStickVertical)*0.5,
+									0.4);
 			
-		if (cH) {
+		if (stickIsActive) {
 			
 			//Smooth Display
-			var actualDir = Controller.stickDirection;
+			var actualDir = Controller.rightStickDirection;
 			weaponWheelLerpDisplayingDir -= angle_difference(weaponWheelLerpDisplayingDir, actualDir) / 3;
 			
 			//Get Segments Count
@@ -53,15 +69,80 @@
 			cD %= 360;
 			
 			//Get What Segment Stick is aiming IN
-			weaponHighlighted = cD div segSize;
-
+			var newWeapon = cD div segSize
+			
+			//Keep Track of Time Holding Weapon
+			sameWeaponHighlightedFor += Game.delta;
+			if (newWeapon != weaponHighlighted) {
+				lastWeaponHighlightedFor = sameWeaponHighlightedFor;
+				sameWeaponHighlightedFor = 0;
+			}
+			
+			//Reccognize Holding
+			lastWeaponHighlighted = weaponHighlighted;
+			weaponHighlighted = newWeapon;
+		
 		} else {
 			
-			//If No Direction Inputted, Revert to basic weapon
+			
+			//Let go of stick, meaning weapon chosen
+			
+			//If Resetting, No Need To Check, as none has been selected in that case
+			var weaponHasBeenSelected = resetingWeaponSelection;
+			
+			//Weapon To Switch To
+			var weaponToSwitchTo = weapon.none;
+			
+			//Only Select
+			if (!weaponHasBeenSelected) {
+				if (sameWeaponHighlightedFor > 4) {
+				
+					//Choose this as the weapon
+					weaponToSwitchTo = weaponHighlighted;
+					weaponHasBeenSelected = true;
+				
+				//Check the Last Weapon (Incase weapon switched when releasing the stick)
+				} else {
+			
+					if (lastWeaponHighlightedFor > 4) {
+						weaponToSwitchTo = lastWeaponHighlighted;
+						weaponHasBeenSelected = true;
+					}
+				}
+			}
+			
+			//
+			//
+			//Selection Events
+			if (weaponHasBeenSelected) {
+			
+				//Close UI
+				selectingWeapon = false;
+			
+				//Check If Different Weapon than Player Was Using
+				if (weaponToSwitchTo != weaponUsing) {
+				
+					//Set As New Weapon
+					weaponUsing = weaponToSwitchTo;
+				
+					//Transition Animation
+					
+					
+					//Reset
+					weaponHighlighted = weapon.none;
+					lastWeaponHighlighted = weapon.none;
+					sameWeaponHighlightedFor = 0;
+					lastWeaponHighlightedFor = 0;				
+				}
+			}
+			
+			//Reset
+			weaponWheelJustClosed = true;
 			weaponHighlighted = weapon.none;	
 		}
 		
-		
+		//
+		//Cancel Weapon Selection
 		if (Controller.combatAttack) {
 			selectingWeapon = false;	
 		}

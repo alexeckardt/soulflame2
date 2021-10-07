@@ -29,4 +29,13 @@ heavyAttackPressed = false;
 block = false;
 blockPressed = false;
 
-selectingWeaponToggle = false;
+
+
+//View Stick
+holdingRightStick = false;
+
+rightStickHorizontal = 0;
+rightStickVertical = 0;
+rightStickDirection = 0;
+rightStickHolding = false;
+rightStickPressed = false;

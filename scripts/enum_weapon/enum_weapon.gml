@@ -12,6 +12,7 @@ enum weapon {
 	bow,
 	anchor,
 	scythe,
+	trident,
 	
 	
 	height,

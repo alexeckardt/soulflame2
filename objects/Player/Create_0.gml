@@ -42,11 +42,16 @@ heartBoxAlpha = 0.5;
 
 //Weapon Selection UI
 selectingWeapon = false;
+weaponWheelJustClosed = false;
 weaponWheelSurf = -1;
 weaponWheelScale = 0;
 weaponHighlighted = weapon.none;
+sameWeaponHighlightedFor = 0;
+lastWeaponHighlighted = weapon.none;
+lastWeaponHighlightedFor = 0;
 
-weaponWheelSize = 140;
+weaponWheelSpr = sWeaponWheelBackground;
+weaponWheelSize = sprite_get_width(weaponWheelSpr);
 weaponSelectionBubbleSize = 32;
 weaponWheelSurfaceWidth = weaponWheelSize + weaponSelectionBubbleSize*2;
 weaponWheelScaleDispalyThreshold = 0.05;

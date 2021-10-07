@@ -98,13 +98,17 @@ display_set_gui_size(guiW, guiH)
 			draw_clear_alpha(0, 0.5);
 			
 			//Draw Ring
-	
-		
-			//Draw Ring Cutout
-			
+			var wheelBuffer = weaponSelectionBubbleSize;
+			var wheelRadius = weaponWheelSize;
+			draw_sprite(weaponWheelSpr, 0, wheelBuffer, wheelBuffer)
 			
 			//Draw Weapons in correct slots and positions
-	
+			if (weaponHighlighted != -1) {
+					var sSize = 360 div weapon.height;
+					var startAng = 90 + ((weaponHighlighted - 1) * sSize) + sSize/2;
+					startAng %= 359;
+					draw_pie(center-1, center-1, 1, weapon.height, c_gray, wheelRadius+10, 1, startAng);
+				}
 	
 			//Draw Controller Stick Position
 			var zoneRad = weaponWheelSize;
