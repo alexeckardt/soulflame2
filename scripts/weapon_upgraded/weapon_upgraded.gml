@@ -3,7 +3,7 @@
 //
 //
 //
-function weapon_unlocked(_weaponid){
+function weapon_upgraded(_weaponid){
 
 	return Player.weaponsUnlocked[# _weaponid, 1];
 

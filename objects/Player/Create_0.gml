@@ -13,7 +13,7 @@ weaponUsing = weapon.none;
 	baseScytheDamage = 1.4;
 
 weaponsUnlocked = ds_grid_create(weapon.height, 2);
-ds_list_clear(weaponsUnlocked, 0);
+ds_grid_create(weaponsUnlocked, 0);
 
 //Essence Tokens
 essenceTokensCanHold = 3;
