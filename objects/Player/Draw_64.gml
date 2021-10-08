@@ -99,7 +99,7 @@ display_set_gui_size(guiW, guiH)
 			
 			//Draw Ring
 			var wheelBuffer = weaponSelectionBubbleSize;
-			var wheelRadius = weaponWheelSize;
+			var wheelRadius = weaponWheelSize  div 2;
 			draw_sprite(weaponWheelSpr, 0, wheelBuffer, wheelBuffer)
 			
 			//Draw Weapons in correct slots and positions
@@ -107,8 +107,24 @@ display_set_gui_size(guiW, guiH)
 					var sSize = 360 div weapon.height;
 					var startAng = 90 + ((weaponHighlighted - 1) * sSize) + sSize/2;
 					startAng %= 359;
-					draw_pie(center-1, center-1, 1, weapon.height, c_gray, wheelRadius+10, 1, startAng);
+					draw_pie(center-1, center-1, 1, weapon.height, c_gray, wheelRadius + 5, 1, startAng);
 				}
+	
+			for (var i = 0; i < weapon.height; i++) {
+					//Icon
+					var sSize = 360 div weapon.height;
+					var startAng = 90 + ((i-1) * sSize) + sSize/2;
+					startAng %= 359;
+					
+					//Pos
+					var iconLen = wheelRadius - 16 + 4*(weaponHighlighted == i);
+					var wIconX = center + lengthdir_x(iconLen, startAng + (sSize div 2));
+					var wIconY = center + lengthdir_y(iconLen, startAng + (sSize div 2));
+					
+					//Draw
+					draw_sprite_ext(sWeaponIcons, i, wIconX, wIconY, 1, 1, 0, c_white, 1);	
+			}
+	
 	
 			//Draw Controller Stick Position
 			var zoneRad = weaponWheelSize;
