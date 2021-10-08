@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Keira",
-    "path": "folders/Sprites/Keira.yy",
+    "name": "Idle",
+    "path": "folders/Sprites/Keira/Idle.yy",
   },
   "resourceVersion": "1.0",
   "name": "sKeiraIdleReady",

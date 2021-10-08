@@ -128,7 +128,7 @@ display_set_gui_size(guiW, guiH)
 	
 			//Draw Controller Stick Position
 			var zoneRad = weaponWheelSize;
-			var rad = weaponWheelLerpDisplayingLen;
+			var rad = min(0.5, weaponWheelLerpDisplayingLen);
 
 			var stickX = zoneRad * lengthdir_x(rad, weaponWheelLerpDisplayingDir);
 			var stickY = zoneRad * lengthdir_y(rad, weaponWheelLerpDisplayingDir);

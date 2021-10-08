@@ -28,7 +28,7 @@ function keira_decide_attack_vars_fire_meele(_nextState) {
 			
 			spr = (useFront) ? sKeiraPunch0Front : sKeiraPunch0Back;
 			weaponOverlaySprite = -1
-			spd = 0.65;
+			spd = 0.55;
 			damageObjConsistants = keira_damage_info_array_create(0, -32, 45, 15, 4, 0, -0.5, true);
 			
 			adjustDirectionFacingPreDamage = true;
