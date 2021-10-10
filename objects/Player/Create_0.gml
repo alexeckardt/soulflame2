@@ -59,6 +59,9 @@ weaponWheelScaleDispalyThreshold = 0.05;
 weaponWheelLerpDisplayingDir = 0;
 weaponWheelLerpDisplayingLen = 0;
 
+//HUD Surface
+guiHudSurf = -1;
+
 
 //UI Positions
 tokenEdgeBuffer = 18;

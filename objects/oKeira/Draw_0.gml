@@ -3,10 +3,15 @@
 //Squash and Squish
 squishX = lerp(squishX, 0, sqiushElasticity);
 squishY = lerp(squishY, 0, sqiushElasticity);
+var scX = round(squishX * 100) / 100;
+var scY = round(squishY * 100) / 100;
+
 directionFacingSmooth -= (directionFacing - directionFacingSmooth) * turnSpeed;
 
-var xsc = directionFacing * (1 + squishX);
-var ysc = (1 + squishY);
+var xsc = directionFacing * (1 + scX);
+var ysc = (1 + scY);
+
+
 
 var drawX = (x);
 var drawY = (y);

@@ -13,7 +13,7 @@ function enemy_take_damage() {
 		var damageCreator = damageingObject.creator;
 	
 		//Send Info Back To Damage Object
-		if (damageingObject.life > 0) {
+		if (damageingObject.life > 1) {
 			
 			//Not If Destroyed 
 			damageingObject.enemyHitCount++;

@@ -1,35 +1,33 @@
+/// @description 
 
-//Camera Based Off of https://github.com/YAL-GameMaker/pixel-perfect-smooth-camera/blob/master/
+//Disable App Surface
+application_surface_enable(false);
 
-var vc = view_camera[0];
+cam = view_camera[0];
 
-//Get Camera Dimensions
-var vw = camera_get_view_width(vc);
-var vh = camera_get_view_height(vc);
+var cW = camera_get_view_width(cam);
+var cH = camera_get_view_height(cam);
+game_width = cW;
+game_height = cH;
 
-game_width = vw;
-game_height = vh;
-game_aspect = game_width / game_height;
+zoom = 3;
+zoomLast = 1;
+window_set_size(cW*zoom, cH*zoom);
+centerApplication = true;
 
-//Resize The Application Surface
-surface_resize(application_surface, game_width, game_height);
-display_set_gui_size(game_width, game_height);
-
+//camera_set_view_size(cam, cW+1, game_height+1);
+display_set_gui_size(cW, cH);
 view_surf = -1;
-smooth = true;
 
-//Camera Following
-target = instance_nearest(x, y, oKeira);
+//desired_game_width = 640;
+//desired_game_height = 360;
+//Targetting
+target = oKeira.id;
 targetXoffset = 0;
-targetYoffset = -16;
-roomEdgeBuffer = 8;
+targetYoffset = -32;
+trackingSpeed = 0.3;
+roomEdgeBuffer = 16;
 
-//Locked Camera
-lockX = x;
-lockY = y;
-panCameraToLock = false;
+lockX = 0;
+lockY = 0;
 
-fullscreen = true;
-scale = 4;
-
-trackingSpeed = 0.25;

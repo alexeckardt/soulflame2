@@ -1,6 +1,5 @@
 /// @desc
 
-//Display
 var guiW = Camera.game_width;
 var guiH = Camera.game_height;
 display_set_gui_size(guiW, guiH)
@@ -34,13 +33,13 @@ display_set_gui_size(guiW, guiH)
 			var ind = (perent / 100) * (sprite_get_number(spr)-1);
 	
 			var c = c_white;
-			draw_sprite_ext(spr, ind, tokenxx, tokenyy, 1, 1, 0, c, 1);
+			draw_sprite_ext(spr, ind, floor(tokenxx), floor(tokenyy), 1, 1, 0, c, 1);
 			
 		} else {
 
 			//Draw Empty Slot
 			var c = c_white;
-			draw_sprite_ext(sEssenceTokenSlot, 0, tokenxx, tokenyy, 1, 1, 0, c, 1);		
+			draw_sprite_ext(sEssenceTokenSlot, 0, floor(tokenxx), floor(tokenyy), 1, 1, 0, c, 1);		
 	
 		}
 
@@ -52,8 +51,8 @@ display_set_gui_size(guiW, guiH)
 	var healthBoxWidth = (baseMaxHealth + 1) * (heartWidthOffset);
 
 	//Background
-	draw_sprite_ext(sHeartBackground, 0,	-1,					hpY, healthBoxWidth,	1, 0, heartBoxCol, heartBoxAlpha);
-	draw_sprite_ext(sHeartBackgroundEdge, 0,-1+healthBoxWidth,	hpY, 1,					1, 0, heartBoxCol, heartBoxAlpha);
+	draw_sprite_ext(sHeartBackground, 0,	floor(-1),					floor(hpY), healthBoxWidth,		1, 0, heartBoxCol, heartBoxAlpha);
+	draw_sprite_ext(sHeartBackgroundEdge, 0,floor(-1+healthBoxWidth),	floor(hpY), 1,					1, 0, heartBoxCol, heartBoxAlpha);
 	
 	//Draw Hearts
 	for (var i = 0; i < baseMaxHealth; i++) {
@@ -83,7 +82,7 @@ display_set_gui_size(guiW, guiH)
 		}
 		
 		//Draw
-		draw_sprite(heartSprite, 0, heartxx, hpY);
+		draw_sprite(heartSprite, 0, floor(heartxx), floor(hpY));
 		
 	}
 	
@@ -122,7 +121,7 @@ display_set_gui_size(guiW, guiH)
 					var wIconY = center + lengthdir_y(iconLen, startAng + (sSize div 2));
 					
 					//Draw
-					draw_sprite_ext(sWeaponIcons, i, wIconX, wIconY, 1, 1, 0, c_white, 1);	
+					draw_sprite_ext(sWeaponIcons, i, floor(wIconX), floor(wIconY), 1, 1, 0, c_white, 1);	
 			}
 	
 	
@@ -133,7 +132,7 @@ display_set_gui_size(guiW, guiH)
 			var stickX = zoneRad * lengthdir_x(rad, weaponWheelLerpDisplayingDir);
 			var stickY = zoneRad * lengthdir_y(rad, weaponWheelLerpDisplayingDir);
 			
-			draw_circle(center+stickX, center+stickY, 10, false);
+			draw_circle(floor(center+stickX), floor(center+stickY), 10, false);
 			
 			surface_reset_target();
 		
@@ -143,6 +142,6 @@ display_set_gui_size(guiW, guiH)
 		var wheelPosY = (guiH - weaponWheelSurfaceWidth*weaponWheelScale) div 2; //
 		
 		//Surf
-		draw_surface_ext(weaponWheelSurf, wheelPosX, wheelPosY, weaponWheelScale, weaponWheelScale, 0, c_white, 1)
+		draw_surface_ext(weaponWheelSurf, floor(wheelPosX), floor(wheelPosY), weaponWheelScale, weaponWheelScale, 0, c_white, 1)
 	
 	}
