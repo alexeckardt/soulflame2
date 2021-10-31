@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Idle",
-    "path": "folders/Sprites/Keira/Idle.yy",
+    "path": "folders/Sprites/Keira/Base/Idle.yy",
   },
   "resourceVersion": "1.0",
   "name": "sKeiraIdle",

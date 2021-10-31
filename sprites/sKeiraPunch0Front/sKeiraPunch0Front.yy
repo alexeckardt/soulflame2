@@ -85,8 +85,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Keira",
-    "path": "folders/Sprites/Keira.yy",
+    "name": "Idle",
+    "path": "folders/Sprites/Keira/Base/Idle.yy",
   },
   "resourceVersion": "1.0",
   "name": "sKeiraPunch0Front",

@@ -2,7 +2,7 @@
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
-  "origin": 9,
+  "origin": 7,
   "preMultiplyAlpha": false,
   "edgeFiltering": false,
   "collisionTolerance": 0,
@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"be761ab2-805f-4efc-b648-d8d0d183e0a2","path":"sprites/sKeiraIdleReady/sKeiraIdleReady.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"be761ab2-805f-4efc-b648-d8d0d183e0a2","path":"sprites/sKeiraIdleReady/sKeiraIdleReady.yy",},"LayerId":{"name":"2b3ee4e8-db4f-401d-8e5f-8e9e7147ccd6","path":"sprites/sKeiraIdleReady/sKeiraIdleReady.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sKeiraIdleReady","path":"sprites/sKeiraIdleReady/sKeiraIdleReady.yy",},"resourceVersion":"1.0","name":"be761ab2-805f-4efc-b648-d8d0d183e0a2","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"1dcfffb7-f8ce-45eb-9477-ca755410df6f","path":"sprites/sKeiraIdleSword/sKeiraIdleSword.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"1dcfffb7-f8ce-45eb-9477-ca755410df6f","path":"sprites/sKeiraIdleSword/sKeiraIdleSword.yy",},"LayerId":{"name":"e4c507ca-74c1-402b-bcf2-b9c48ca8461e","path":"sprites/sKeiraIdleSword/sKeiraIdleSword.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sKeiraIdleSword","path":"sprites/sKeiraIdleSword/sKeiraIdleSword.yy",},"resourceVersion":"1.0","name":"1dcfffb7-f8ce-45eb-9477-ca755410df6f","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"sKeiraIdleReady","path":"sprites/sKeiraIdleReady/sKeiraIdleReady.yy",},
+    "spriteId": {"name":"sKeiraIdleSword","path":"sprites/sKeiraIdleSword/sKeiraIdleSword.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"b43ff3e9-6630-4ab1-9dc3-98bee07f16ac","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"be761ab2-805f-4efc-b648-d8d0d183e0a2","path":"sprites/sKeiraIdleReady/sKeiraIdleReady.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"e9fb88b0-6b16-4320-8a71-fee234e4d062","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"1dcfffb7-f8ce-45eb-9477-ca755410df6f","path":"sprites/sKeiraIdleSword/sKeiraIdleSword.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -54,26 +54,26 @@
     "backdropHeight": 768,
     "backdropXOffset": 0.0,
     "backdropYOffset": 0.0,
-    "xorigin": 15,
+    "xorigin": 14,
     "yorigin": 51,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sKeiraIdleReady","path":"sprites/sKeiraIdleReady/sKeiraIdleReady.yy",},
+    "parent": {"name":"sKeiraIdleSword","path":"sprites/sKeiraIdleSword/sKeiraIdleSword.yy",},
     "resourceVersion": "1.3",
-    "name": "sKeiraIdleReady",
+    "name": "sKeiraIdleSword",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"2b3ee4e8-db4f-401d-8e5f-8e9e7147ccd6","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"e4c507ca-74c1-402b-bcf2-b9c48ca8461e","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Idle",
-    "path": "folders/Sprites/Keira/Base/Idle.yy",
+    "name": "Sword",
+    "path": "folders/Sprites/Keira/Sword.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sKeiraIdleReady",
+  "name": "sKeiraIdleSword",
   "tags": [],
   "resourceType": "GMSprite",
 }

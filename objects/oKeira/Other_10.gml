@@ -3,6 +3,13 @@
 var time = Game.delta;
 var resetStateOnAnimationFinish = false;
 
+if (weaponUsing != Player.weaponUsing) {
+	weaponUsing = Player.weaponUsing
+	
+	keira_switch_visual_sprites(weaponUsing);
+}
+
+
 switch (STATE) {
 	default:
 	
@@ -11,7 +18,7 @@ switch (STATE) {
 		if (running) {
 			
 			displayReadyPosForTime = 0;
-			sprite_switch_to(sKeiraRun);
+			sprite_switch_to(runSprite);
 			index_speed = 0.4;
 			
 		} else {
