@@ -39,7 +39,7 @@ switch (STATE) {
 		displayReadyPosForTime = room_speed;
 		
 		//Update Direction Facing
-		if (image_index < 1.5) {
+		if (image_index < 3.5) {
 			
 			if (adjustDirectionFacingPreDamage) {
 				directionFacing = sign(target.x - x + 0.002)

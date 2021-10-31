@@ -32,8 +32,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Entity/Enemy/Objects.yy",
+    "name": "Bandit",
+    "path": "folders/Entity/Enemy/Objects/Bandit.yy",
   },
   "resourceVersion": "1.0",
   "name": "oMeeleBandit",

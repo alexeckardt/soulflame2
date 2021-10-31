@@ -1,6 +1,8 @@
 /// @desc
 
 //On Creation Through Script
+destroyed = false
+
 xoffset			= 0;
 yoffset			= 0;
 followCreator	= false;

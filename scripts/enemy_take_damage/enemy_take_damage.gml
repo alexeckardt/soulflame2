@@ -16,10 +16,13 @@ function enemy_take_damage() {
 		if (damageingObject.life > 1) {
 			
 			//Not If Destroyed 
-			damageingObject.enemyHitCount++;
-			ds_list_add(damageingObject.enemiesHit, id);
-			damageingObject.hasHitEnemy = true;
-			damageingObject.hasHitEnemyAllowUpdate = true;
+			if (damageingObject.destroyed == false) {
+				damageingObject.enemyHitCount++;
+		
+				ds_list_add(damageingObject.enemiesHit, id);
+				damageingObject.hasHitEnemy = true;
+				damageingObject.hasHitEnemyAllowUpdate = true;
+			}
 		}
 	
 		//Grab Info

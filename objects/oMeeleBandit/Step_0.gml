@@ -110,7 +110,7 @@ generic_collide_solid();
 			
 			//State Setup
 			STATE = state.combat_htilt;
-			attackSprite = sKeiraPunchHeavyFront;
+			attackSprite = sBanditPunchHeavy;
 			
 		}
 	

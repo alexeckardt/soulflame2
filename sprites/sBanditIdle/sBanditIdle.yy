@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "Bandit",
+    "path": "folders/Entity/Enemy/Objects/Bandit.yy",
   },
   "resourceVersion": "1.0",
   "name": "sBanditIdle",

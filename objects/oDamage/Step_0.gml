@@ -12,4 +12,5 @@ var decay = (allowLifeDecay || creator.STATE == state.hurt) //Update this later
 life -= Game.delta*decay;
 if (life < 0) {
 	instance_destroy();
+	destroyed = true
 }	
